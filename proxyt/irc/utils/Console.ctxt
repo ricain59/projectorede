@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=obj
+comment0.target=void\ println(java.lang.Object)
+comment1.params=obj
+comment1.target=void\ print(java.lang.Object)
+comment2.params=s\ args
+comment2.target=java.io.PrintStream\ printf(java.lang.String,\ java.lang.Object[])
+comment3.params=e
+comment3.target=void\ printError(java.lang.Exception)
+comment4.params=
+comment4.target=java.lang.String\ nextLine()
+comment5.params=
+comment5.target=float\ nextFloat()
+comment6.params=
+comment6.target=int\ nextInt()
+numComments=7
