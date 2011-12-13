@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=clientSocket\ CacheManager\ configObject
+comment0.target=Proxy(java.net.Socket,\ Cache,\ Config)
+comment1.params=
+comment1.target=void\ run()
+comment2.params=
+comment2.target=void\ sendAppletWebPage()
+comment3.params=className
+comment3.target=void\ sendAppletClass(java.lang.String)
+comment4.params=str
+comment4.target=java.lang.String\ serverName(java.lang.String)
+comment4.text=\r\n\ Find\ the\ //server.name\ from\ an\ url.\r\n\r\n\ @return\ Servers\ internet\ name\r\n
+comment5.params=str
+comment5.target=int\ serverPort(java.lang.String)
+comment5.text=\r\n\ Find\ the\ \:PORT\ form\ http\://server.ect\:PORT/some/file.xxx\r\n\r\n\ @return\ Servers\ internet\ name\r\n
+comment6.params=str
+comment6.target=java.lang.String\ serverUrl(java.lang.String)
+comment6.text=\r\n\ Find\ the\ /some/file.xxxx\ form\ http\://server.ect\:PORT/some/file.xxx\r\n\r\n\ @return\ the\ deproxied\ url\r\n
+numComments=7

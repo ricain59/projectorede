@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=value\ oldValue\ newValue
+comment0.target=java.lang.String\ replaceAll(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Retorna\ uma\ nova\ String\ replicando\ todas\ as\ ocurrencias\ da\ String\ oldValue\ pela\ String\ newValue.\r\n\ @param\ value\ String\ de\ origem.\r\n\ @param\ oldValue\ String\ antiga.\r\n\ @param\ newValue\ Nova\ String.\r\n\ @return\ uma\ nova\ String\ replicando\ a\ String\ antiga\ pela\ nova\ String.\r\n
+comment1.params=value
+comment1.target=java.lang.String\ upperCaseWithoutAccents(java.lang.String)
+comment1.text=\r\n\ Retorna\ uma\ nova\ String\ sem\ espa\uFFFDos,\ sem\ acentos\ e\ em\ mai\uFFFDsculas.\r\n\ @param\ value\ String\ de\ origem.\r\n\ @return\ String\ sem\ acentos,\ sem\ espa\uFFFDos\ e\ em\ mai\uFFFDsculas.\r\n
+comment2.params=value
+comment2.target=java.lang.String\ processaAlias(java.lang.String)
+comment2.text=\r\n\ Retorna\ uma\ nova\ String\ com\ os\ espa\uFFFDos\ trocados\ por\ '_',\ sem\ acentos\ e\ em\ min\uFFFDsculas.\r\n\ @param\ value\ String\ de\ origem.\r\n\ @return\ String\ sem\ acentos,\ sem\ espa\uFFFDos\ e\ em\ min\uFFFDsculas.\r\n
+comment3.params=value
+comment3.target=java.lang.String\ removeAccents(java.lang.String)
+comment3.text=\r\n\ Substitui\ um\ caract\uFFFDres\ com\ acento\ pelo\ mesmo\ mas\ sem\ acento\ gr\uFFFDfico.\r\n\ @param\ value\ String\ de\ origem.\r\n\ @return\ String\ sem\ acentos.\r\n
+comment4.params=source\ delimiter
+comment4.target=java.lang.String\ join(java.lang.String[],\ java.lang.String)
+comment4.text=\r\n\ Junta\ as\ String\ do\ Array\ com\ de\ separador\ dados\ como\ par\uFFFDmetro.\r\n\ @param\ source\ Array\ do\ tipo\ String.\r\n\ @param\ delimiter\ separador\ para\ os\ elementos\ do\ Array.\r\n\ @return\ uma\ nova\ String.\r\n
+comment5.params=value\ number
+comment5.target=java.lang.String\ repeat(java.lang.String,\ int)
+comment5.text=\r\n\ Cria\ uma\ String,\ repetindo\ n\ vezes\ o\ valor\ inserido.\r\n\ @param\ value\ String\ a\ ser\ repetida.\r\n\ @param\ number\ N\uFFFDmero\ de\ vezes\ que\ a\ String\ ser\uFFFD\ repetida.\r\n
+comment6.params=value\ format
+comment6.target=java.util.Date\ toDate(java.lang.String,\ java.lang.String)
+comment6.text=\r\n\ Tranforma\ um\ String\ num\ formato\ de\ data\ e\ converte\ para\ o\ tipo\ Date.\r\n\ @param\ value\ String\ que\ representa\ uma\ Data.\r\n\ @param\ format\ Formato\ da\ data\ que\ foi\ introduzida.\r\n\ @return\ um\ objecto\ do\ tipo\ Date\ da\ convers\uFFFDo\ da\ String\ para\ Date.\ Caso\ a\ String\ value\ n\uFFFDo\ esteja\ no\ formato\ correcto,\ devolve\ null.\r\n
+numComments=7

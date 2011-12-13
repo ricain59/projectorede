@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=array
+comment0.target=java.util.Iterator\ iterator(java.lang.Object[])
+comment0.text=\r\n\ Cria\ um\ iterator\ apartir\ de\ uma\ array.\r\n\ @param\ array\ array\ fonte.\r\n\ @return\ Iterator\ do\ array.\r\n
+comment1.params=arrayOne\ arrayTwo
+comment1.target=java.lang.String[]\ intersection(java.lang.String[],\ java.lang.String[])
+comment1.text=\r\n\ Faz\ a\ interc\uFFFD\uFFFDo\ entre\ dois\ arrays\ de\ Strings.\r\n\ @param\ arrayOne\ Primeiro\ Array.\r\n\ @param\ arrayTwo\ Segundo\ Array.\r\n\ @return\ um\ novo\ array\ do\ tipo\ String\ com\ as\ Strings\ que\ existem\ em\ ambos\ os\ arrays.\r\n
+numComments=2

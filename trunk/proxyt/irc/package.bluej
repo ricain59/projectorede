@@ -1,0 +1,27 @@
+#BlueJ package file
+package.editor.height=400
+package.editor.width=560
+package.editor.x=317
+package.editor.y=435
+package.numDependencies=0
+package.numTargets=3
+package.showExtends=true
+package.showUses=true
+target1.height=62
+target1.name=utils
+target1.type=PackageTarget
+target1.width=80
+target1.x=160
+target1.y=10
+target2.height=62
+target2.name=http
+target2.type=PackageTarget
+target2.width=80
+target2.x=250
+target2.y=10
+target3.height=62
+target3.name=proxy
+target3.type=PackageTarget
+target3.width=80
+target3.x=340
+target3.y=10

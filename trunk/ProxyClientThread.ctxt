@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=socket
+comment0.target=ProxyClientThread(java.net.Socket)
+comment1.params=
+comment1.target=void\ readRequete()
+comment2.params=
+comment2.target=void\ run()
+numComments=3

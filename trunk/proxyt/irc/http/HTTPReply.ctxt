@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=response\ current\ modified\ server\ connection\ contentType\ length\ f
+comment0.target=HTTPReply(HTTPResponce,\ java.util.Date,\ java.util.Date,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ long,\ java.io.File)
+comment1.params=
+comment1.target=java.lang.String\ getHTTPResponse()
+comment1.text=\ Returns\ the\ http\ reply\ code\r\n
+comment2.params=
+comment2.target=java.io.File\ getObjectFile()
+comment2.text=\ Returns\ the\ requested\ file,\ or\ null\ if\ the\ file\ does\ not\ exist\r\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\ Converts\ this\ HTTPReply\ to\ a\ string\r\n
+comment4.params=root\ request
+comment4.target=HTTPReply\ createHTTPReply(java.io.File,\ java.lang.String)
+comment4.text=\ Creates\ a\ new\ HTTPReply\ object\ that\ represents\ the\ response\ to\ the\ request\ sent\ from\ the\ browser\r\n\ The\ created\ request\ contains\ the\ HTTP\ reply,\ as\ well\ as\ other\ fields,\r\n\ The\ request\ also\ contains\ a\ reference\ to\ the\ requested\ object.\r\n
+numComments=5

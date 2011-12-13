@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=toHost\ pedido
+comment0.target=ClientToServerThread(java.io.DataOutputStream,\ java.util.ArrayList)
+comment1.params=
+comment1.target=void\ run()
+numComments=2

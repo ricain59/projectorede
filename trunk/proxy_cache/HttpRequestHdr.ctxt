@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=In
+comment0.target=boolean\ parse(java.io.InputStream)
+comment0.text=\r\n\ Parses\ a\ http\ header\ from\ a\ stream.\r\n\r\n\ @param\ in\ \ The\ stream\ to\ parse.\ \r\n\ @return\ \ \ \ true\ if\ parsing\ sucsessfull.\r\n
+comment1.params=sendUnknowen
+comment1.target=java.lang.String\ toString(boolean)
+comment1.text=\r\n\ Rebuilds\ the\ header\ in\ a\ string\r\n\ @returns\ \ \ \ \ \ The\ header\ in\ a\ string.\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ (Re)builds\ the\ header\ in\ a\ string.\r\n\r\n\ @returns\ \ \ \ \ \ The\ header\ in\ a\ string.\r\n
+comment3.params=tk
+comment3.target=java.lang.String\ getToken(java.util.StringTokenizer)
+comment3.text=\r\n\ \ Returns\ the\ next\ token\ in\ a\ string\r\n\r\n\ @param\ \ \ tk\ String\ that\ is\ partially\ tokenized.\r\n\ @returns\ The\ remainder\r\n
+comment4.params=tk
+comment4.target=java.lang.String\ getRemainder(java.util.StringTokenizer)
+comment4.text=\r\n\ \ Returns\ the\ remainder\ of\ a\ tokenized\ string\r\n\r\n\ @param\ \ \ tk\ String\ that\ is\ partially\ tokenized.\r\n\ @returns\ The\ remainder\r\n
+numComments=5
