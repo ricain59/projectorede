@@ -28,9 +28,13 @@ public class ProxyClientThread extends Thread{
     private int porta;
     HTTPRequest request;
     ClientToServerThread clientToServer;
+    Cache cache;
+    boolean inCache = false;
+    private DataInputStream fromCache;
 
-    public ProxyClientThread(Socket socket) {
+    public ProxyClientThread(Socket socket, Cache cache) {
         this.socket = socket;
+        this.cache = cache;
         porta = socket.getPort();
         try {
             //fromBrowser = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
@@ -49,7 +53,7 @@ public class ProxyClientThread extends Thread{
         //HTTPRequest request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
         //String linha;
 
-        // create an HTTPRequest object from the data received from the input stream			
+        // create an HTTPRequest object from the data received from the input stream            
         request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
         System.out.println("Request (start)------------");
         System.out.println(request);
@@ -61,119 +65,142 @@ public class ProxyClientThread extends Thread{
             System.out.println("browser sent a GET operation");
             //             for(int i=0;i<request.arrayRequestObject.length;i++)
             //             {
-            //                 System.out.println("test"+i+" : "+request.arrayRequestObject[i]);
+            //System.out.println("test : "+request.requestedObject);
+            //                 }
+            if(cache.IsCachable(request.requestedObject))
+            {
+                //System.out.println("ok pour le cache");
+                if(cache.IsCached(url.toString()))
+                {
+                    fromCache = new DataInputStream(cache.getFileInputStream(url.toString()));
+                    //OutputStream outCache = ClientSocket.getOutputStream();
+                    inCache = true;
+                }else{
+                    URL url;
+                    String newurl[] = request.header.get(0).split(" ");
+                    url = new URL("http://"+newurl[1]);
+                    int portaServer = url.getPort() > 0 ? url.getPort() : 80;
+
+                    socketServer = new Socket(url.getHost(),portaServer);
+
+                    pedido.add("GET " + request.requestedObject + " " + "HTTP/1.0");
+
+                    fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
+                    toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
+
+                    clientToServer = new ClientToServerThread(toHost, pedido);
+
+
+                }
+                //pedido.add("GET " + request.requestedObject + " " + "HTTP/1.0");
+            }else if(request.requestType().equals(HTTPRequest.PUT)){ // PUT request
+                System.out.println("browser sent a PUT operation");
+
+                pedido.add("PUT " + request.requestedObject + " " + "HTTP/1.0");
+
+                //toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
+            }
+            else{ // POST request
+                System.out.println("browser sent a POST operation");
+
+                pedido.add("POST " + request.requestedObject + " " + "HTTP/1.0");
+
+                //toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
+            }
+
+            //System.out.println(""+request.type);
+            //System.out.println(""+request.requestedObject);
+            //System.out.println(""+request.version);
+            //System.out.println(""+request.header.get(0));
+
+            //         // identify the requested method
+            //         if(request.requestType().equals(HTTPRequest.GET)) { // reply to a GET request
+            //             System.out.println("browser sent a GET operation");
+            // 
+            //             // create an http reply based on the requested object
+            //             HTTPReply reply = HTTPReply.createHTTPReply(root, request.requestedObject());
+            //             System.out.println("Reply (start)------------");
+            //             System.out.println(reply);
+            //             System.out.println("Reply (end)--------------\n");
+            // 
+            //             // send reply
+            //             toBrowser.write(reply.toString().getBytes());
+            //             toBrowser.write("\r\n".getBytes());
+            // 
+            //             // if reply is OK
+            //             if(reply.getHTTPResponse().equals(HTTPReply.HTTP_OK)) { // the files needs to be sent
+            //                 // open requested file
+            //                 // read it and send its contents to browser
+            //                 FileInputStream fis = new FileInputStream(reply.getObjectFile());
+            //                 byte[] buffer = new byte[4096];
+            //                 int read;
+            //                 while((read = fis.read(buffer))!= -1){
+            //                     toBrowser.write(buffer, 0, read);
+            //                 }
+            //                 // close file
+            //                 fis.close();
             //             }
+            //             else { // file Not Found
+            //                 System.out.println("File not found");
+            //             }
+            //         }
+            //         else if(request.requestType().equals(HTTPRequest.PUT)) { // PUT request
+            //             System.out.println("PUT operation");
+            // 
+            //             //TODO: Implement this
+            // 
+            //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
+            //         }
+            //         else if(request.requestType().equals(HTTPRequest.POST)) { // POST request
+            //             System.out.println("POST operation");
+            // 
+            //             //TODO: Implement this
+            // 
+            //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
+            //         }
+            //         else { // Unkown request
+            //             System.out.println("ERROR");
+            //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
+            //         }
 
-            pedido.add("GET " + request.requestedObject + " " + "HTTP/1.0");
+            //close input stream from browser
+            //fromBrowser.close();
+            // close output stream to browser
+            //toBrowser.close();
+            //close socket to browser
+            //newConnection.close();
 
-        }else if(request.requestType().equals(HTTPRequest.PUT)){ // PUT request
-            System.out.println("browser sent a PUT operation");
-
-            pedido.add("PUT " + request.requestedObject + " " + "HTTP/1.0");
-
-            //toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
-        }
-        else{ // POST request
-            System.out.println("browser sent a POST operation");
-
-            pedido.add("POST " + request.requestedObject + " " + "HTTP/1.0");
-
-            //toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
-        }
-
-        //System.out.println(""+request.type);
-        //System.out.println(""+request.requestedObject);
-        //System.out.println(""+request.version);
-        //System.out.println(""+request.header.get(0));
-
-        //         // identify the requested method
-        //         if(request.requestType().equals(HTTPRequest.GET)) { // reply to a GET request
-        //             System.out.println("browser sent a GET operation");
-        // 
-        //             // create an http reply based on the requested object
-        //             HTTPReply reply = HTTPReply.createHTTPReply(root, request.requestedObject());
-        //             System.out.println("Reply (start)------------");
-        //             System.out.println(reply);
-        //             System.out.println("Reply (end)--------------\n");
-        // 
-        //             // send reply
-        //             toBrowser.write(reply.toString().getBytes());
-        //             toBrowser.write("\r\n".getBytes());
-        // 
-        //             // if reply is OK
-        //             if(reply.getHTTPResponse().equals(HTTPReply.HTTP_OK)) { // the files needs to be sent
-        //                 // open requested file
-        //                 // read it and send its contents to browser
-        //                 FileInputStream fis = new FileInputStream(reply.getObjectFile());
-        //                 byte[] buffer = new byte[4096];
-        //                 int read;
-        //                 while((read = fis.read(buffer))!= -1){
-        //                     toBrowser.write(buffer, 0, read);
-        //                 }
-        //                 // close file
-        //                 fis.close();
-        //             }
-        //             else { // file Not Found
-        //                 System.out.println("File not found");
-        //             }
-        //         }
-        //         else if(request.requestType().equals(HTTPRequest.PUT)) { // PUT request
-        //             System.out.println("PUT operation");
-        // 
-        //             //TODO: Implement this
-        // 
-        //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
-        //         }
-        //         else if(request.requestType().equals(HTTPRequest.POST)) { // POST request
-        //             System.out.println("POST operation");
-        // 
-        //             //TODO: Implement this
-        // 
-        //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
-        //         }
-        //         else { // Unkown request
-        //             System.out.println("ERROR");
-        //             toBrowser.write((HTTPReply.HTTP_ERROR+"\r\n\r\n").getBytes());
-        //         }
-
-        //close input stream from browser
-        //fromBrowser.close();
-        // close output stream to browser
-        //toBrowser.close();
-        //close socket to browser
-        //newConnection.close();
-
-        //     while ((linha = dados.readLine()) != null) {
-        //         if (linha.length() == 0)
-        //             break;
-        //         /* On transforme la pedido du client car il ne s'agit pas de transmettre au serveur
-        //          * l'URL complete mais juste l'element e telecharger, c'est pourquoi on reconstruit la
-        //          * ligne GET */
-        //         if (linha.trim().toUpperCase().startsWith("GET")) {
-        //             String url = linha.substring(3);
-        //             String rest = "";
-        //             // Obtenir http
-        //             int posit = url.toUpperCase().lastIndexOf("HTTP");
-        //             if (posit >= 0) {
-        //                 rest = url.substring(posit).trim();
-        //                 url = url.substring(0, posit).trim();
-        //             } else {
-        //                 url = url.trim();
-        //             }
-        //             get = url;
-        // 
-        //             // Creation nouveau GET -> GET http://ordinateur.xyz:80/toto.htm HTTP 1.0
-        //             URL getURL = new URL(url);
-        //             pedido.add("GET " + getURL.getFile() + " " + rest);
-        //             System.out.println(socket.getInetAddress().getHostName() + " GET " + url);
-        //         } else {
-        //             pedido.add(linha);
-        //         }
-        // 
-        //         // HOST contient l'adresse du serveur
-        //         if (linha.trim().toUpperCase().startsWith("HOST:"))
-        //             host = linha.substring(5).trim();
-        //     }
+            //     while ((linha = dados.readLine()) != null) {
+            //         if (linha.length() == 0)
+            //             break;
+            //         /* On transforme la pedido du client car il ne s'agit pas de transmettre au serveur
+            //          * l'URL complete mais juste l'element e telecharger, c'est pourquoi on reconstruit la
+            //          * ligne GET */
+            //         if (linha.trim().toUpperCase().startsWith("GET")) {
+            //             String url = linha.substring(3);
+            //             String rest = "";
+            //             // Obtenir http
+            //             int posit = url.toUpperCase().lastIndexOf("HTTP");
+            //             if (posit >= 0) {
+            //                 rest = url.substring(posit).trim();
+            //                 url = url.substring(0, posit).trim();
+            //             } else {
+            //                 url = url.trim();
+            //             }
+            //             get = url;
+            // 
+            //             // Creation nouveau GET -> GET http://ordinateur.xyz:80/toto.htm HTTP 1.0
+            //             URL getURL = new URL(url);
+            //             pedido.add("GET " + getURL.getFile() + " " + rest);
+            //             System.out.println(socket.getInetAddress().getHostName() + " GET " + url);
+            //         } else {
+            //             pedido.add(linha);
+            //         }
+            // 
+            //         // HOST contient l'adresse du serveur
+            //         if (linha.trim().toUpperCase().startsWith("HOST:"))
+            //             host = linha.substring(5).trim();
+        }  //     }
     }
 
     public void run() {
@@ -181,52 +208,54 @@ public class ProxyClientThread extends Thread{
         {
             pedido = new ArrayList();
             readRequete();
-            URL url;
-            try 
-            {
-                String newurl[] = request.header.get(0).split(" ");
-                //url = new URL("http://"+request.header.get(0));
-                url = new URL("http://"+newurl[1]);
-                //url = new URL("http://www.google.com");
-                //                 for(int i=0;i<newurl.length;i++)
-                //                 {
-                //                     System.out.println("test"+i+" : "+newurl[i]);
-                //                 }
-
-                int portaServer = url.getPort() > 0 ? url.getPort() : 80;
-                socketServer = new Socket(url.getHost(),portaServer);
-            }
-            catch (Exception e) {
-                PrintWriter out = new PrintWriter(new OutputStreamWriter(toBrowser));
-                out.println("Erro : "+e);
-                out.flush();
-
-                if (fromBrowser != null)
-                    fromBrowser.close();
-                if (toBrowser != null)
-                    toBrowser.close();
-                if (socket != null)
-                    socket.close();
-                if (socketServer != null)
-                    socketServer.close();
-
-                return;
-            }
+            //             URL url;
+            //             try 
+            //             {
+            //                 String newurl[] = request.header.get(0).split(" ");
+            //                 //url = new URL("http://"+request.header.get(0));
+            //                 url = new URL("http://"+newurl[1]);
+            //                 //url = new URL("http://www.google.com");
+            //                 //                 for(int i=0;i<newurl.length;i++)
+            //                 //                 {
+            //                 //                     System.out.println("test"+i+" : "+newurl[i]);
+            //                 //                 }
+            // 
+            //                 int portaServer = url.getPort() > 0 ? url.getPort() : 80;
+            //                 socketServer = new Socket(url.getHost(),portaServer);
+            //             }
+            //             catch (Exception e) {
+            //                 PrintWriter out = new PrintWriter(new OutputStreamWriter(toBrowser));
+            //                 out.println("Erro : "+e);
+            //                 out.flush();
+            // 
+            //                 if (fromBrowser != null)
+            //                     fromBrowser.close();
+            //                 if (toBrowser != null)
+            //                     toBrowser.close();
+            //                 if (socket != null)
+            //                     socket.close();
+            //                 if (socketServer != null)
+            //                     socketServer.close();
+            // 
+            //                 return;
+            //             }
 
             //fromHost = socketServer.getInputStream();
             //toHost = socketServer.getOutputStream();
-            fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
-            toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
+            //fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
+            //toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
             //System.out.println("request object: "+request.requestedObject);
 
             //
+            //pedido.add("GET " + request.requestedObject + " " + "HTTP/1.0");
+
             // Envio do pedido ao servidor
-            clientToServer = new ClientToServerThread(toHost, pedido);
+            //clientToServer = new ClientToServerThread(toHost, pedido);
 
             byte [] reponse = new byte[4096];
             int read;
             // envio das informações recebidas do servidor ao browser
-            while ((read = fromHost.read(reponse)) != -1)
+            while ((read = fromCache.read(reponse)) != -1)
             {
                 toBrowser.write(reponse, 0, read);
                 toBrowser.flush();

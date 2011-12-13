@@ -4,12 +4,13 @@ import java.io.IOException;
 
 public class ProxyThread extends Thread
 {
-
+    Cache cache;
     private int porta;
 
-    public ProxyThread(int porta) 
+    public ProxyThread(int porta, Cache cache) 
     {
         this.porta = porta;
+        this.cache = cache;
         start();
     }
 
@@ -21,7 +22,7 @@ public class ProxyThread extends Thread
             while (!interrupted()) {
                 Socket cliente = server.accept();
                 System.out.println("Pedido do cliente com ip : " + cliente.getInetAddress());
-                new ProxyClientThread(cliente);
+                new ProxyClientThread(cliente, cache);
                 sleep(5);
             }
             System.out.println("Stop");

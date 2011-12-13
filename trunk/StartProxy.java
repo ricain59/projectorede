@@ -5,12 +5,13 @@ import java.io.InputStreamReader;
 public class StartProxy
 {
     private ProxyThread proxyServer;
+    Cache cache = new Cache();
 
     public StartProxy()
     {
 
         System.out.println("Start do proxy");
-        proxyServer = new ProxyThread(8080);
+        proxyServer = new ProxyThread(8080, cache);
     }
 
     public void stop()
