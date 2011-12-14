@@ -99,7 +99,7 @@ public class Cache
     //   to cache a new object. We generate a file name, and return 
     //   a corresponding FileOutputStream object.
     //
-    public FileOutputStream getFileOutputStream(String rawUrl)
+    public FileOutputStream getFileOutputStream(String rawUrl)//uso
     {
         FileOutputStream out = null;
         String filename;

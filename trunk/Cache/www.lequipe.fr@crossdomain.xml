@@ -1,0 +1,14 @@
+HTTP/1.0 200 OK
+Server: Apache
+Last-Modified: Thu, 27 Sep 2007 15:29:14 GMT
+Cache-Control: max-age=30
+Expires: Fri, 08 Jul 2011 10:18:44 GMT
+Content-Type: text/xml
+Date: Wed, 14 Dec 2011 23:52:56 GMT
+Content-Length: 110
+Connection: close
+
+<?xml version="1.0"?>
+<cross-domain-policy>
+        <allow-access-from domain="*" />
+</cross-domain-policy>

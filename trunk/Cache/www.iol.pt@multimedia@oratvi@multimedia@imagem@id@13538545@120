@@ -1,0 +1,73 @@
+HTTP/1.1 503 Service Unavailable
+Server: Varnish
+Retry-After: 0
+Content-Type: text/html; charset=utf-8
+Content-Length: 2307
+Date: Wed, 14 Dec 2011 23:50:55 GMT
+X-Varnish: 2329875020
+Via: 1.1 varnish
+Connection: close
+age: 0
+X-Cache: MISS
+
+
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+                <!--<meta http-equiv="refresh" content="10" />-->
+                <style type="text/css">
+                <!--
+                    body {
+                        font:100% Verdana,Arial,Helvetica,sans-serif;
+                        background:#666666;
+                        margin:0;
+                        padding:0;
+                        text-align:center;
+                        color:#000000
+                    }
+                    .oneColElsCtrHdr #container {
+                        width:46em;
+                        background:#FFFFFF;
+                        margin:0 auto;
+                        border:1px solid #000000;
+                        text-align:left
+                    }
+                    .oneColElsCtrHdr #header {
+                        background:#DDDDDD;
+                        padding:0 10px 0 20px
+                    }
+                    .oneColElsCtrHdr #header h1 {
+                        margin:0;
+                        padding:10px 0
+                    }
+                    .oneColElsCtrHdr #mainContent {
+                        padding:0 20px;
+                        background:#FFFFFF
+                    }
+                    .oneColElsCtrHdr #footer {
+                        padding:0 10px;
+                        background:#DDDDDD
+                    }
+                    .oneColElsCtrHdr #footer p {
+                        margin:0;
+                        padding:10px 0
+                    }
+                -->
+                </style>
+            </head>
+            <body class="oneColElsCtrHdr">
+                <div id="container">
+                    <div id="header">
+                        <h1>Ocorreu um erro</h1>
+                    </div>
+                    <div id="mainContent">
+                        <p>Esta p&aacute;gina vai refrescar dentro de 10 segundos</p>
+                        <p>Obrigado pela sua compreens&atilde;o</p>
+                    </div>
+                    <div id="footer">
+                        <p align="right" style="font-size:9px">HTTP 503 - XID: 2329875020</p>
+                    </div>
+                </div>
+            </body>
+        </html>
+    
