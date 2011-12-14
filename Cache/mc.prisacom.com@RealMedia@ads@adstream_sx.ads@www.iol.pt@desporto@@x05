@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Wed, 14 Dec 2011 23:52:21 GMT
+Server: Apache/2.2.3 (Red Hat)
+Set-Cookie: OAX=vFOke07pNrUABDIK; expires=Sat, 14-Dec-13 23:52:21 GMT; path=/; domain=.prisacom.com
+P3P: CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml"
+Content-Length: 251
+Keep-Alive: timeout=60
+Connection: Keep-Alive
+Content-Type: text/html
+Set-Cookie: NSC_fo1efm_qppm_iuuq=ffffffff09097b8345525d5f4f58455e445a4a423660;path=/;httponly
+
+<A HREF="http://mc.prisacom.com/5c/www.iol.pt/desporto/295137675/x05/default/empty.gif/76464f6b653037704e7255414244494b?x" target="_top"><IMG SRC="http://imagenen1.247realmedia.com/0/default/empty.gif"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>

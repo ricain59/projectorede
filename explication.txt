@@ -9,3 +9,5 @@ executar na consola:
 java –jar programa.jar
 
 
+din = fromhost
+dout = tohost

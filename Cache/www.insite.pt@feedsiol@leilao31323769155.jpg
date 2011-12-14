@@ -1,0 +1,12 @@
+HTTP/1.1 301 http://www.(null)http://www.insite.pt/feedsiol/leilao31323769155.jpg
+Server: Varnish
+Retry-After: 0
+Location: http://www.(null)http://www.insite.pt/feedsiol/leilao31323769155.jpg
+Date: Wed, 14 Dec 2011 23:52:19 GMT
+X-Varnish: 1270310502
+Via: 1.1 varnish
+Connection: close
+age: 0
+X-Cache: MISS
+Expires: Wed, 21 Dec 2011 23:52:19 GMT
+

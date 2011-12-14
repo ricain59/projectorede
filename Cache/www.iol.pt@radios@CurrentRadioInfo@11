@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+X-FromCache: true
+Content-Type: application/xml
+Via: 1.1 www.iol.pt
+X-Cookies-Cleared: true
+cache-control: no-cache, no-store
+pragma: no-cache
+X-Cache-Debug: client: no-cache, no-store ; server: 600.000
+Content-Length: 679
+Date: Wed, 14 Dec 2011 23:47:00 GMT
+X-Varnish: 1310201435
+Via: 1.1 varnish
+Connection: keep-alive
+age: 0
+X-Cache: MISS
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><RadioInfo><Table><DB_RADIO_ID>11</DB_RADIO_ID><DB_RADIO_NAME>Rádio Comercial</DB_RADIO_NAME><DB_RADIO_IMAGE>comercial.jpg</DB_RADIO_IMAGE><DB_DALET_TITLE_NAME>LET GO</DB_DALET_TITLE_NAME><DB_DALET_ARTIST_NAME>MIA ROSE</DB_DALET_ARTIST_NAME><DB_DALET_ITEM_CODE>72415</DB_DALET_ITEM_CODE><DB_SONG_ID>55872</DB_SONG_ID><DB_SONG_NAME>Let Go</DB_SONG_NAME><DB_LEAD_ARTIST_ID>14496</DB_LEAD_ARTIST_ID><DB_LEAD_ARTIST_NAME>Mia Rose</DB_LEAD_ARTIST_NAME><DB_IS_MUSIC>1</DB_IS_MUSIC></Table><AnimadorInfo><NAME> Rita Rugeroni</NAME><IMAGE>rita_ouvironline.png</IMAGE><URL>/equipa/rita_rugeroni.html</URL></AnimadorInfo></RadioInfo>

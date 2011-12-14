@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Date: Wed, 14 Dec 2011 23:52:20 GMT
+Server: Apache/2.2.3 (Red Hat)
+Set-Cookie: OAX=vFOke07pNrQAByfO; expires=Sat, 14-Dec-13 23:52:20 GMT; path=/; domain=.prisacom.com
+P3P: CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml"
+Content-Length: 1533
+Keep-Alive: timeout=60
+Connection: Keep-Alive
+Content-Type: text/html
+Set-Cookie: NSC_fo1efm_qppm_iuuq=ffffffff09097b8345525d5f4f58455e445a4a423660;path=/;httponly
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+var filePath                     = "http://imagenen1.247realmedia.com/RealMedia/ads/Creatives/PRISA-PT/FixeAds_Leiloes_RON_HBP_Dez2011/295x117_iol.swf/1323107522";
+var TFSMFlash_PRETAG             = "";
+var TFSMFlash_POSTTAG            = "";
+var TFSMFlash_VERSION            = "8";
+var TFSMFlash_WMODE              = "opaque";
+
+			var TFSMFlash_OASCLICK           = "http://mc.prisacom.com/5c/www.iol.pt/homepage/L19/1561651489/x55/PRISA-PT/FixeAds_Leiloes_RON_HBP_Dez2011/FixeAds_Leiloes_RON_HBP_A_Dez2011.html/76464f6b653037704e7251414279664f";
+	
+
+
+var TFSMFlash_SWFCLICKVARIABLE   = "?clickTag="+TFSMFlash_OASCLICK + "";
+var TFSMFlash_SWFFILE            = filePath + TFSMFlash_SWFCLICKVARIABLE;
+var TFSMFlash_FSCOMMAND          = "";
+var TFSMFlash_IMAGEALTERNATE     = "";
+
+
+var TFSMFlash_OASALTTEXT         = "";
+var TFSMFlash_OASTARGET          = "_blank";
+var TFSMFlash_OASPROTOCOL        = "http://";
+var TFSMFlash_OASDIM             = "width='295px' height='117px'";
+var TFSMFlash_OASADID            = "OAS_RMF_x55_FLASH";
+document.write("<"+"scr"+"ipt type=\"text/javascript\" src=\"http://imagenen1.247realmedia.com/RealMedia/ads/Creatives/PRISA-PT/FixeAds_Leiloes_RON_HBP_Dez2011/TFSMFlashWrapper301.js/1323107522\"><\/scr"+"ipt"+">");
+//]]>
+</script>
+
+
+<IMG SRC="http://mc.prisacom.com/5/www.iol.pt/homepage/L19/1561651489/x55/PRISA-PT/FixeAds_Leiloes_RON_HBP_Dez2011/FixeAds_Leiloes_RON_HBP_A_Dez2011.html/76464f6b653037704e7251414279664f?_RM_EMPTY_&" WIDTH=1 HEIGHT=1>

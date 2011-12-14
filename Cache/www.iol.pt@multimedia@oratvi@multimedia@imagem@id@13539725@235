@@ -1,0 +1,15 @@
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Content-Type: text/html
+X-Cookies-Cleared: true
+cache-control: no-cache, no-store
+pragma: no-cache
+X-Cache-Debug: client: no-cache, no-store ; server: 600.000
+Content-Length: 0
+Date: Thu, 15 Dec 2011 00:09:24 GMT
+X-Varnish: 300685205
+Via: 1.1 varnish
+Connection: keep-alive
+age: 0
+X-Cache: MISS
+
