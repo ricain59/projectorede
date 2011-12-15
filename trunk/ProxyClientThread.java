@@ -24,14 +24,16 @@ public class ProxyClientThread extends Thread{
     private ArrayList pedido;
     private int porta;
     HTTPRequest request;
-
     ClientToServerThread clientToServer;
     Cache cache;
-    boolean inCache = false;
     private DataInputStream fromCache;
     private DataOutputStream toCache;
     byte line[];
+    //String tempStr;
 
+    /*
+     * Recebe os dados da class proxythread para poder depois tratar os mesmos.
+     */
     public ProxyClientThread(Socket socket, Cache cache) {
         this.socket = socket;
         this.cache = cache;
@@ -46,6 +48,11 @@ public class ProxyClientThread extends Thread{
         }
     }
 
+    /*
+     * Faz o tratamento do pedido
+     * Vê se exite na cache e caso existe devolve para o browser, nesse caso o cliente
+     * Caso não existe vai buscar as informações ao host, mete as na cache e depois devolve as mesma para o browser, , nesse caso o cliente.
+     */
     private void readRequete() throws Exception {
         request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
         System.out.println("Request (start)------------");
@@ -60,12 +67,12 @@ public class ProxyClientThread extends Thread{
             System.out.println("browser sent a GET operation");
             if(cache.IsCachable(requestedObject))
             {
-                inCache = true;
+                //inCache = true;
                 if(cache.IsCached(requestedObject))
                 {
                     fromCache = new DataInputStream(cache.getFileInputStream(requestedObject));
-
-                    byte data[] = new byte[2000];
+                    //sendToBrowser(fromCache);
+                    byte data[] = new byte[4096];
                     int count;
                     while (-1 < ( count  = fromCache.read(data)))
                     {
@@ -124,7 +131,7 @@ public class ProxyClientThread extends Thread{
                             }
                         }
                         toHost.flush();
-                        byte data[] = new byte[2000];
+                        byte data[] = new byte[4096];
                         int count;
                         while (( count  = fromHost.read(data)) != -1)
                         {
@@ -146,16 +153,16 @@ public class ProxyClientThread extends Thread{
                 url = new URL("http://"+newurl[1]);
 
                 int portaServer = url.getPort() > 0 ? url.getPort() : 80;
-                
+
                 socketServer = new Socket(url.getHost(),portaServer);
-                
+
                 fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
                 toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
 
                 pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
 
                 clientToServer = new ClientToServerThread(toHost, pedido);
-
+                //sendToBrowser(fromCache);
                 byte [] reponse = new byte[4096];
                 int read;
                 // envio das informações recebidas do servidor ao browser
@@ -181,6 +188,37 @@ public class ProxyClientThread extends Thread{
 
     }
 
+    private void sendToBrowser(DataInputStream fromCache)
+    {
+        try
+        {
+            byte data[] = new byte[4096];
+            int count;
+            while ((count = fromCache.read(data)) != -1)
+            {
+                toBrowser.write(data,0,count);
+            }
+        }
+        catch (IOException e) 
+        {
+            System.out.println("Erro Thread Proxy : " + porta);
+        }
+        finally
+        {
+            try
+            {
+                toBrowser.flush();
+                fromCache.close();
+            }
+            catch (Exception e) {
+                System.out.println("Erro Thread Proxy : " + porta);
+            }
+        }
+    }
+
+    /*
+     * Lança o metodoa reaRequete e ao fim fecha todas as linhas de dados.
+     */
     public void run() {
         try
         {

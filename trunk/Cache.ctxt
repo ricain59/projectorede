@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Cache()
+comment0.text=\r\n\ Contrutor\r\n
 comment1.params=urlRecebido
 comment1.target=boolean\ IsCachable(java.lang.String)
 comment1.text=\r\n\ Verifica\ se\ o\ url\ pode\ ser\ inserido\ na\ cache\ (url\ com\ ?\ ou\ \!)\r\n
