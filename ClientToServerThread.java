@@ -15,6 +15,10 @@ class ClientToServerThread extends Thread
         start();
     }
 
+    /*
+     * Transmita os dados recebidos da class proxyclient thread para o host do qual queremos a paginas 
+     * e outros dados.
+     */
     public void run()
     {
         try 

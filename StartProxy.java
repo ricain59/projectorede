@@ -7,18 +7,27 @@ public class StartProxy
     private ProxyThread proxyServer;
     Cache cache = new Cache();
 
+    /*
+     * Lança a class ProxyThread que permite se executar em varias thread
+     */
     public StartProxy()
     {
         System.out.println("Start do proxy");
         proxyServer = new ProxyThread(8080, cache);
     }
 
+    /*
+     * Caso o tulizador escreva a palavra EXIT o proxy é parado
+     */
     public void stop()
     {
         if (proxyServer.isAlive())
             proxyServer.interrupt();
     }
 
+    /*
+     * Class com o main para iniciar o proxy
+     */
     public static void main(String[] args)
     {
         StartProxy proxy = new StartProxy();

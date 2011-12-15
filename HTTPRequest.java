@@ -18,6 +18,9 @@ public class HTTPRequest {
 	
 	public LinkedList<String> header; // remainder of the request's header
 	
+	/*
+	 * Recupera os dados necessario para as variaveis
+	 */
 	private HTTPRequest(String type, String requestedObject, String version) {
 		this.type = type;
 		this.requestedObject = requestedObject;
@@ -31,21 +34,21 @@ public class HTTPRequest {
 	}
 	
 	/*
-	 * returns the request type of this request
+	 * Devolva o tipo de pedido
 	 */
 	public String requestType() {
 		return type;
 	}
 	
 	/*
-	 * returns the requested object of this request
+	 * Devolva o objecto pedido
 	 */
 	public String requestedObject() {
 		return requestedObject;
 	}
 	
 	/*
-	 * returns the HTTP version of this request
+	 * Devolva a versão do http
 	 */
 	public String httpVersion() {
 		return version;
@@ -62,28 +65,10 @@ public class HTTPRequest {
 		}
 		return res;
 	}
-	
-	/*
-	 * Creates an HTTPRequest object that represents a browser request  
-	 */
-	static HTTPRequest parseHTTPRequest(InputStream is) {
-		java.util.Scanner sc = new java.util.Scanner(is);
-		String type = sc.next();
-		String requestedObject = sc.next();
-		String version = sc.next();
-		sc.next(); // limpa o \r\n do final da primeira linha
-
-		HTTPRequest request = new HTTPRequest(type, requestedObject, version);
-		String line;
-		while(!(line = sc.nextLine()).equals("")) {
-			request.addHeader(line);
-		}
-		return request;
-	}
 
 	/*
-	 * Creates an HTTPRequest object that represents a browser request converted to HTTP version 1.0
-	 * removing all Connection: keep-alive
+	 * Converte para a versão http 1.0
+	 * E remove todas as linhas do header que comporta connection e keep-alive
 	 */
 	static HTTPRequest parseHTTPRequestAs1_0(InputStream is) {
 		java.util.Scanner sc = new java.util.Scanner(is);

@@ -3,4 +3,5 @@ comment0.params=toHost\ pedido
 comment0.target=ClientToServerThread(java.io.DataOutputStream,\ java.util.ArrayList)
 comment1.params=
 comment1.target=void\ run()
+comment1.text=\r\n\ Transmita\ os\ dados\ recebidos\ da\ class\ proxyclient\ thread\ para\ o\ host\ do\ qual\ queremos\ a\ paginas\ \r\n\ e\ outros\ dados.\r\n
 numComments=2
