@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+x-amz-id-2: 5lBQ56eL1XyEl5nnUgamH/gP4JHicRy+1TZuXZ2g9B14eVKUiiMa2qEg4m3dcCYd
+x-amz-request-id: B09578FE48CC9275
+Date: Thu, 15 Dec 2011 00:43:03 GMT
+Last-Modified: Mon, 12 Dec 2011 18:20:11 GMT
+ETag: "0095a078ce2c5e4dd56925bb02db3e6b"
+Accept-Ranges: bytes
+Content-Type: application/javascript
+Server: AmazonS3
+Cache-Control: private, max-age=900
+Age: 0
+Expires: Thu, 15 Dec 2011 00:58:03 GMT
+X-CDN: Cotendo
+Connection: close
+
+/*
+ * twitter-text-js 1.4.10
+ *
+ * Copyright 2011 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this work except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ */
+if(!window.twttr){window.twttr={}}(function(){twttr.txt={};twttr.txt.regexen={};var C={"&":"&amp;",">":"&gt;","<":"&lt;",'"':"&quot;","'":"&#39;"};twttr.txt.htmlEscape=function(R){return R&&R.replace(/[&"'><]/g,function(S){return C[S]})};function D(S,R){R=R||"";if(typeof S!=="string"){if(S.global&&R.indexOf("g")<0){R+="g"}if(S.ignoreCase&&R.indexOf("i")<0){R+="i"}if(S.multiline&&R.indexOf("m")<0){R+="m"}S=S.source}return new RegExp(S.replace(/#\{(\w+)\}/g,function(U,T){var V=twttr.txt.regexen[T]||"";if(typeof V!=="string"){V=V.source}return V}),R)}function E(S,R){return S.replace(/#\{(\w+)\}/g,function(U,T){return R[T]||""})}function B(S,U,R){var T=String.fromCharCode(U);if(R!==U){T+="-"+String.fromCharCode(R)}S.push(T);return S}var J=String.fromCharCode;var H=[J(32),J(133),J(160),J(5760),J(6158),J(8232),J(8233),J(8239),J(8287),J(12288)];B(H,9,13);B(H,8192,8202);twttr.txt.regexen.spaces_group=D(H.join(""));twttr.txt.regexen.spaces=D("["+H.join("")+"]");twttr.txt.regexen.punct=/\!'#%&'\(\)*\+,\\\-\.\/:;<=>\?@\[\]\^_{|}~/;twttr.txt.regexen.atSigns=/[@＠]/;twttr.txt.regexen.extractMentions=D(/(^|[^a-zA-Z0-9_])(#{atSigns})([a-zA-Z0-9_]{1,20})(?=(.|$))/g);twttr.txt.regexen.extractReply=D(/^(?:#{spaces})*#{atSigns}([a-zA-Z0-9_]{1,20})/);twttr.txt.regexen.listName=/[a-zA-Z][a-zA-Z0-9_\-\u0080-\u00ff]{0,24}/;twttr.txt.regexen.extractMentionsOrLists=D(/(^|[^a-zA-Z0-9_])(#{atSigns})([a-zA-Z0-9_]{1,20})(\/[a-zA-Z][a-zA-Z0-9_\-]{0,24})?(?=(.|$))/g);var N=[];B(N,1024,1279);B(N,1280,1319);B(N,11744,11775);B(N,42560,42655);B(N,4352,4607);B(N,12592,12677);B(N,43360,43391);B(N,44032,55215);B(N,55216,55295);B(N,65441,65500);B(N,12449,12538);B(N,12540,12542);B(N,65382,65439);B(N,65392,65392);B(N,65296,65305);B(N,65313,65338);B(N,65345,65370);B(N,12353,12438);B(N,12441,12446);B(N,13312,19903);B(N,19968,40959);B(N,173824,177983);B(N,177984,178207);B(N,194560,195103);B(N,12293,12293);B(N,12347,12347);twttr.txt.regexen.nonLatinHashtagChars=D(N.join(""));twttr.txt.regexen.latinAccentChars=D("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþş\\303\\277");twttr.txt.regexen.endScreenNameMatch=D(/^(?:#{atSigns}|[#{latinAccentChars}]|:\/\/)/);twttr.txt.regexen.hashtagBoundary=D(/(?:^|$|#{spaces}|[「」。、.,!！?？:;"'])/);twttr.txt.regexen.hashtagAlpha=D(/[a-z_#{latinAccentChars}#{nonLatinHashtagChars}]/i);twttr.txt.regexen.hashtagAlphaNumeric=D(/[a-z0-9_#{latinAccentChars}#{nonLatinHashtagChars}]/i);twttr.txt.regexen.autoLinkHashtags=D(/(#{hashtagBoundary})(#|＃)(#{hashtagAlphaNumeric}*#{hashtagAlpha}#{hashtagAlphaNumeric}*)/gi);twttr.txt.regexen.autoLinkUsernamesOrLists=/(^|[^a-zA-Z0-9_]|RT:?)([@＠]+)([a-zA-Z0-9_]{1,20})(\/[a-zA-Z][a-zA-Z0-9_\-]{0,24})?/g;twttr.txt.regexen.autoLinkEmoticon=/(8\-\#|8\-E|\+\-\(|\`\@|\`O|\&lt;\|:~\(|\}:o\{|:\-\[|\&gt;o\&lt;|X\-\/|\[:-\]\-I\-|\/\/\/\/Ö\\\\\\\\|\(\|:\|\/\)|∑:\*\)|\( \| \))/g;twttr.txt.regexen.validPrecedingChars=D(/(?:[^-\/"'!=A-Za-z0-9_@＠\.]|^)/);twttr.txt.regexen.invalidDomainChars=E("\u00A0#{punct}#{spaces_group}",twttr.txt.regexen);twttr.txt.regexen.validDomainChars=D(/[^#{invalidDomainChars}]/);twttr.txt.regexen.validSubdomain=D(/(?:(?:#{validDomainChars}(?:[_-]|#{validDomainChars})*)?#{validDomainChars}\.)/);twttr.txt.regexen.validDomainName=D(/(?:(?:#{validDomainChars}(?:-|#{validDomainChars})*)?#{validDomainChars}\.)/);twttr.txt.regexen.validGTLD=D(/(?:(?:aero|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel)(?=[^a-zA-Z]|$))/);twttr.txt.regexen.validCCTLD=D(/(?:(?:ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cs|cu|cv|cx|cy|cz|dd|de|dj|dk|dm|do|dz|ec|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|ss|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw)(?=[^a-zA-Z]|$))/);twttr.txt.regexen.validPunycode=D(/(?:xn--[0-9a-z]+)/);twttr.txt.regexen.validDomain=D(/(?:#{validSubdomain}*#{validDomainName}(?:#{validGTLD}|#{validCCTLD}|#{validPunycode}))/);twttr.txt.regexen.validShortDomain=D(/^#{validDomainName}#{validCCTLD}$/);twttr.txt.regexen.validPortNumber=D(/[0-9]+/);twttr.txt.regexen.validGeneralUrlPathChars=D(/[a-z0-9!\*';:=\+\$

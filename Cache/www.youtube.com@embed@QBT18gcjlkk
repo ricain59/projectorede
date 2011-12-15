@@ -1,14 +1,14 @@
 HTTP/1.0 200 OK
-Date: Wed, 14 Dec 2011 23:53:19 GMT
+Date: Thu, 15 Dec 2011 00:43:09 GMT
 Server: Apache
 X-Content-Type-Options: nosniff
-Set-Cookie: VISITOR_INFO1_LIVE=0UUCau4l0RE; path=/; domain=.youtube.com; expires=Fri, 10-Aug-2012 23:53:19 GMT
-Set-Cookie: GEO=927037c53e9e61d20f772b142343cd33cwsAAAAzUFS8U6R7Tuk27w==; path=/; domain=.youtube.com
-Set-Cookie: VISITOR_INFO1_LIVE=0UUCau4l0RE; path=/; domain=.youtube.com; expires=Fri, 10-Aug-2012 23:53:19 GMT
-Set-Cookie: GEO=927037c53e9e61d20f772b142343cd33cwsAAAAzUFS8U6R7Tuk27w==; path=/; domain=.youtube.com
+Set-Cookie: VISITOR_INFO1_LIVE=Br0nTImxZWo; path=/; domain=.youtube.com; expires=Sat, 11-Aug-2012 00:43:09 GMT
+Set-Cookie: GEO=b20e7b39fc6a77c0acac2ebf079f2383cwsAAAAzUFS8U6R7TulCnQ==; path=/; domain=.youtube.com
+Set-Cookie: VISITOR_INFO1_LIVE=Br0nTImxZWo; path=/; domain=.youtube.com; expires=Sat, 11-Aug-2012 00:43:09 GMT
+Set-Cookie: GEO=b20e7b39fc6a77c0acac2ebf079f2383cwsAAAAzUFS8U6R7TulCnQ==; path=/; domain=.youtube.com
 Expires: Tue, 27 Apr 1971 19:44:06 EST
 Cache-Control: no-cache
-Content-Length: 4590
+Content-Length: 4478
 Content-Type: text/html; charset=utf-8
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ Content-Type: text/html; charset=utf-8
 <head>
     <title>Bromas Graciosas (Just For Laughs) - YouTube</title>
 
-      <link  rel="stylesheet" href="http://s.ytimg.com/yt/cssbin/www-embed-refresh-vflCCinZA.css">
+    <link  rel="stylesheet" href="http://s.ytimg.com/yt/cssbin/www-embed-refresh-vflUy4_Ee.css">
 
 
     <link rel="canonical" href="/watch?v=QBT18gcjlkk">
@@ -39,27 +39,27 @@ Anúncio
 
 
         
-    <script  src="//s.ytimg.com/yt/jsbin/www-embed_core_module-vfl5vmUXz.js"></script>
+    <script  src="//s.ytimg.com/yt/jsbin/www-embed_core_module-vfliTkpth.js"></script>
 
 
   <script>
     yt.setConfig({
-      'EMBED_BINARY_URL': '//s.ytimg.com/yt/jsbin/www-embed_core_module-vfl5vmUXz.js',
+      'EMBED_BINARY_URL': '//s.ytimg.com/yt/jsbin/www-embed_core_module-vfliTkpth.js',
       'ORIGIN': "*",
       'IS_OPERA_MINI': false
     });
     yt.setMsg({
-      'FLASH_UPGRADE': '<div  class=\"yt-alert yt-alert-error yt-alert-player yt-rounded \"><span class=\"yt-alert-icon\"><img src=\"\/\/s.ytimg.com\/yt\/img\/pixel-vfl3z5WfW.gif\" class=\"icon master-sprite\" alt=\"Ícone de alerta\"><\/span><div  class=\"yt-alert-content\">        É necessário actualizar o Adobe Flash Player para ver este vídeo. <br> <a href=\"http:\/\/get.adobe.com\/flashplayer\/\">Transfira-o da Adobe.<\/a>\n<\/div><\/div>'
+      'FLASH_UPGRADE': '<div  class=\"yt-alert yt-alert-error yt-alert-player yt-rounded \"><img src=\"\/\/s.ytimg.com\/yt\/img\/pixel-vfl3z5WfW.gif\" class=\"icon master-sprite\" alt=\"Ícone de alerta\"><div  class=\"yt-alert-content\">        É necessário actualizar o Adobe Flash Player para ver este vídeo. <br> <a href=\"http:\/\/get.adobe.com\/flashplayer\/\">Transfira-o da Adobe.<\/a>\n<\/div><\/div>'
     });
       yt.setConfig({
-      'PLAYER_CONFIG': {"assets": {"html": "\/html5_player_template", "css": "http:\/\/s.ytimg.com\/yt\/cssbin\/www-player-vfl1bxWVE.css"}, "url": "http:\/\/s.ytimg.com\/yt\/swfbin\/watch_as3-vflPZYogr.swf", "min_version": "8.0.0", "args": {"el": "embedded", "fexp": "906717,916704,914102", "is_html5_mobile_device": false, "allow_embed": 1, "allow_ratings": 1, "hl": "pt_PT", "use_tablet_controls": "0", "eurl": "", "iurl": "http:\/\/i2.ytimg.com\/vi\/QBT18gcjlkk\/hqdefault.jpg", "view_count": 869, "title": "Bromas Graciosas (Just For Laughs)", "avg_rating": 3.66666666667, "video_id": "QBT18gcjlkk", "length_seconds": 429, "sendtmp": "1", "enablejsapi": "0", "sk": "ReRrKbXnj_QRPILRjomxnPGJHXroKnY0C", "use_native_controls": false, "rel": "1", "playlist_module": "http:\/\/s.ytimg.com\/yt\/swfbin\/playlist_module-vfl0B63K3.swf", "watch_xlb": "http:\/\/s.ytimg.com\/yt\/xlb\/watch\/strings-pt_PT-vflqTJASl.xlb", "iurlsd": "http:\/\/i2.ytimg.com\/vi\/QBT18gcjlkk\/sddefault.jpg"}, "url_v9as2": "http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vfleSxV5Q.swf", "params": {"allowscriptaccess": "always", "allowfullscreen": "true", "bgcolor": "#000000"}, "attrs": {"width": "100%", "id": "video-player", "height": "100%"}, "url_v8": "http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vfleSxV5Q.swf", "html5": false},
+      'PLAYER_CONFIG': {"assets": {"html": "\/html5_player_template", "css": "http:\/\/s.ytimg.com\/yt\/cssbin\/www-player-vflNqr0jJ.css"}, "url": "http:\/\/s.ytimg.com\/yt\/swfbin\/watch_as3-vflqr5iPp.swf", "min_version": "8.0.0", "args": {"el": "embedded", "fexp": "905264", "is_html5_mobile_device": false, "allow_embed": 1, "allow_ratings": 1, "hl": "pt_PT", "use_tablet_controls": "0", "eurl": "", "iurl": "http:\/\/i2.ytimg.com\/vi\/QBT18gcjlkk\/hqdefault.jpg", "view_count": 869, "title": "Bromas Graciosas (Just For Laughs)", "avg_rating": 3.66666666667, "video_id": "QBT18gcjlkk", "length_seconds": 429, "sendtmp": "1", "enablejsapi": "0", "sk": "NdS4lon_EEyyXIrWGNaZQhpuT7ZyQbEiC", "use_native_controls": false, "rel": "1", "playlist_module": "http:\/\/s.ytimg.com\/yt\/swfbin\/playlist_module-vflAGys8k.swf", "watch_xlb": "http:\/\/s.ytimg.com\/yt\/xlb\/watch\/strings-pt_PT-vflh7TZ7I.xlb", "iurlsd": "http:\/\/i2.ytimg.com\/vi\/QBT18gcjlkk\/sddefault.jpg"}, "url_v9as2": "http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflI9KoBP.swf", "params": {"allowscriptaccess": "always", "allowfullscreen": "true", "bgcolor": "#000000"}, "attrs": {"width": "100%", "id": "video-player", "height": "100%"}, "url_v8": "http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflI9KoBP.swf", "html5": false},
     'EMBED_HTML_TEMPLATE': "\u003ciframe width=\"__width__\" height=\"__height__\" src=\"__url__\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e",
     'EMBED_HTML_URL': "http:\/\/www.youtube.com\/embed\/__videoid__"
   });
-  yt.net.ajax.setToken('html5_ajax', "vupWOHY42u6ErFV6AY1sYfZQvxd8MEAxMzIzOTA2Nzk5");
+  yt.net.ajax.setToken('html5_ajax', "ZAY_GjjpeeZ7xpHOsmYPzVx-ojZ8MEAxMzIzOTA5Nzg5");
 
   yt.setMsg('HTML5_DEFAULT_FALLBACK', "O seu navegador n\u00e3o reconhece atualmente nenhum dos formatos de v\u00eddeo dispon\u00edveis.\u003cbr\u003e\u003ca href=\"\/html5\"\u003eClique aqui para visitar as nossas perguntas mais frequentes sobre o v\u00eddeo HTML5.\u003c\/a\u003e");
-  yt.setMsg('PLAYER_FALLBACK', "\u003cdiv  class=\"yt-alert yt-alert-error yt-alert-player yt-rounded \"\u003e\u003cspan class=\"yt-alert-icon\"\u003e\u003cimg s\u0072c=\"\/\/s.ytimg.com\/yt\/img\/pixel-vfl3z5WfW.gif\" class=\"icon master-sprite\" alt=\"\u00cdcone de alerta\"\u003e\u003c\/span\u003e\u003cdiv  class=\"yt-alert-content\"\u003e        Para a reprodu\u00e7\u00e3o de v\u00eddeos, \u00e9 necess\u00e1rio ter o Adobe Flash Player ou um navegador suportado por HTML5. \u003cbr\u003e \u003ca href=\"http:\/\/get.adobe.com\/flashplayer\/\"\u003eObtenha o Flash Player mais recente\u003c\/a\u003e \u003cbr\u003e \u003ca href=\"\/html5\"\u003eSaiba mais acerca da atualiza\u00e7\u00e3o para um navegador suportado por HTML5\u003c\/a\u003e\n\u003c\/div\u003e\u003c\/div\u003e");
+  yt.setMsg('PLAYER_FALLBACK', "\u003cdiv  class=\"yt-alert yt-alert-error yt-alert-player yt-rounded \"\u003e\u003cimg s\u0072c=\"\/\/s.ytimg.com\/yt\/img\/pixel-vfl3z5WfW.gif\" class=\"icon master-sprite\" alt=\"\u00cdcone de alerta\"\u003e\u003cdiv  class=\"yt-alert-content\"\u003e        Para a reprodu\u00e7\u00e3o de v\u00eddeos, \u00e9 necess\u00e1rio ter o Adobe Flash Player ou um navegador suportado por HTML5. \u003cbr\u003e \u003ca href=\"http:\/\/get.adobe.com\/flashplayer\/\"\u003eObtenha o Flash Player mais recente\u003c\/a\u003e \u003cbr\u003e \u003ca href=\"\/html5\"\u003eSaiba mais acerca da atualiza\u00e7\u00e3o para um navegador suportado por HTML5\u003c\/a\u003e\n\u003c\/div\u003e\u003c\/div\u003e");
   yt.setMsg('HTML5_QUALITY_SETTING', "qualidade");
   yt.setMsg('HTML5_SPEED_SETTING', "velocidade");
   yt.setMsg('HTML5_SPEED_NORMAL', "normal");

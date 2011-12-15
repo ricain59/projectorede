@@ -1,0 +1,535 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 15 Dec 2011 00:43:03 GMT
+Content-Type: text/css
+Content-Length: 4733
+Last-Modified: Wed, 27 Dec 2006 08:55:29 GMT
+Connection: close
+Accept-Ranges: bytes
+
+body , td , tr {
+
+text-decoration : none;
+
+font-family : Verdana;
+
+font-size : 11px;
+
+cursor : default;
+
+color : #6a5acd;
+
+}
+
+.newposts a {
+
+text-decoration : none;
+
+font-family : Verdana;
+
+font-size : 11px;
+
+overflow: hidden;
+
+}
+
+img {border: 0}
+
+select , option , textarea , input {
+
+border : 1px solid #808080;
+
+color : #6a5acd;
+
+font-size : 11px;
+
+font-family : Verdana, Arial, Helvetica, sans-serif;
+
+background-color : #ffffff;
+
+}
+
+select:hover , option:hover , textarea:hover , input:hover {
+
+border : 1px solid #a8d1e8;
+
+}
+
+
+
+.newposts {
+
+width: 150px;
+
+overflow: hidden;
+
+}
+
+
+
+
+
+
+
+
+a.nav:active , a.nav:visited , a.nav:link {
+
+color : #000000;
+
+font-family : Verdana, Arial, Helvetica, sans-serif;
+
+font-size : 11px;
+
+font-weight : bold;
+
+text-decoration : none;
+
+}
+
+a.nav:hover {
+
+font-size : 11px;
+
+font-family : Verdana, Arial, Helvetica, sans-serif;
+
+font-weight : bold;
+
+color : #666666;
+
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 {
+
+text-decoration : none;
+
+font-family : Verdana;
+
+font-size : 11px;
+
+cursor : default;
+
+color : #6a5acd;
+
+font-weight : normal;
+
+}
+
+th {
+
+text-decoration : none;
+
+}
+
+thead {
+
+text-decoration : none;
+
+}
+
+
+
+div.informer a {
+
+}
+
+
+
+.header {
+
+font-size : 14px;
+
+font-weight : bold;
+
+color : #808080;
+
+text-decoration : none;
+
+}
+
+.bborder {
+
+background-color : #ffffff;
+
+border : 1px solid #a7a6b4;
+
+}
+
+.button
+
+{
+
+  border:2px;
+
+  margin:1px;
+
+  padding: 1px 5px;
+
+  border: 1px solid #000000;
+
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.no_permissions {
+
+        font-size: 8pt;
+
+        background-color: #E1EDF7;
+
+        border: 1px dashed #000080;
+
+        padding: 1em;
+
+        clear: both;
+
+{
+
+text-align : center;
+
+margin-left : 0;
+
+margin-right : 0;
+
+}
+
+#menu li {
+
+padding : 10px 15px;
+
+text-align : center;
+
+float : left;
+
+display : block;
+
+cursor : pointer;
+
+background-color : #f4f4f4;
+
+border : 1px none inherit;
+
+}
+
+#menu li:hover {
+
+background-color : #ffffff;
+
+border : 0 none inherit;
+
+}
+
+#plugins {
+
+width : 100%;
+
+border-collapse : collapse;
+
+}
+
+#plugins td , #plugins th {
+
+border : 1px solid #ccc;
+
+padding : 3px;
+
+}
+
+#plugins th {
+
+background : #f7f6f4;
+
+color : #000;
+
+text-decoration : none;
+
+}
+
+#calendar {
+
+font-size : 10px;
+
+}
+
+#calendar a {
+
+text-decoration : underline;
+
+}
+
+.cs_comment_even {background-color: #E9E9E9; }
+
+.cs_comment_odd {background-color: #FFFFFF; }
+
+.weekday {
+
+background : #ffffff;
+
+color : #666666;
+
+}
+
+.day {
+
+color : #666666;
+
+}
+
+.disabled {
+
+background : #fcfcfc;
+
+}
+
+.enabled {
+
+background : #f7f6f4;
+
+}
+
+.code {
+
+border : 1px solid #000000;
+
+padding : 4px;
+
+background : #f7f6f4;
+
+margin : 10px;
+
+font-family : Andale Mono, Courier;
+
+}
+
+.info {
+
+background-color : #ffffff;
+
+width : 731px;
+
+}
+
+.title {
+
+background-color : #c2e4db;
+
+width : 731px;
+
+}
+
+.blank {
+
+background-color : #ffffff;
+
+width : 10px;
+
+}
+
+.php {
+
+text-align : left;
+
+background-color : #edf1f8;
+
+width : 500px;
+
+padding : 2px;
+
+}
+
+.list {
+
+text-align : left;
+
+padding : 10px;
+
+padding-left : 20px;
+
+}
+
+.instag {
+
+width : 500px;
+
+}
+
+.tags {
+
+padding-bottom : 5px;
+
+padding-top : 5px;
+
+}
+
+.btn {
+
+background-color : #fff;
+
+margin : 1px;
+
+padding : 0 5px 2px;
+
+}
+
+.btn {
+
+background-color : #f7f6f4;
+
+border : 1px solid silver;
+
+font-weight : bold;
+
+font-family : Verdana, Arial;
+
+font-size : 9px;
+
+}
+
+.btn:hover {
+
+background-color : #fff;
+
+}
+
+.btn:link {
+
+text-decoration : none;
+
+color : #000000;
+
+}
+
+.btn:visited {
+
+text-decoration : none;
+
+color : #000000;
+
+}
+
+.btn:hover {
+
+text-decoration : none;
+
+color : #000000;
+
+}
+
+.instag {
+
+font-size : 9px;
+
+color : #ccc;
+
+}
+
+.instag a {
+
+font-size : 11px;
+
+text-decoration : none;
+
+}
+
+.tab-on {
+
+border-top : 1px solid #cccccc;
+
+border-left : 1px solid #cccccc;
+
+border-right : 0 none inherit;
+
+border-bottom : 0 none inherit;
+
+padding : 2px;
+
+width : 100px;
+
+color : #000000;
+
+background-color : #ffffff;
+
+}
+
+.tab-off {
+
+border-top : 1px solid #cccccc;
+
+border-left : 1px solid #cccccc;
+
+border-bottom : 1px solid #cccccc;
+
+border-right : 0 none inherit;
+
+padding : 2px;
+
+width : 100px;
+
+color : #666666;
+
+background-color : #f7f6f4;
+
+}
+
+.tab-none {
+
+padding : 2px;
+
+border-left : 1px solid #cccccc;
+
+border-bottom : 1px solid #cccccc;
+
+border-top : 0 none inherit;
+
+border-right : 0 none inherit;
+
+}
+
+.tab-content {
+
+border-left : 1px solid #cccccc;
+
+border-right : 1px solid #cccccc;
+
+border-top : 0 none inherit;
+
+border-bottom : 0 none inherit;
+
+vertical-align : top;
+
+background-color : #ffffff;
+
+}
+
+.opt-title {
+
+padding : 5px;
+
+}
+
+.opt-desc {
+
+color : #808080;
+
+border-bottom : 1px solid #cccccc;
+
+}
+
+.opt-space {
+
+border-bottom : 1px solid #cccccc;
+
+padding : 4px;
+
+}
+
+.hilite {
+
+font-weight : bold;
+
+background-color : #f8f8f8;
+
+color : red;
+
+}
+
+.table_st {border:1px solid #95d5f3; background:#fefefe}

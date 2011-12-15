@@ -1,0 +1,51 @@
+HTTP/1.1 200 OK
+Date: Thu, 15 Dec 2011 00:43:40 GMT
+Server: Apache
+Last-Modified: Thu, 13 Jan 2011 14:17:10 GMT
+Accept-Ranges: bytes
+Content-Length: 846
+Connection: close
+Content-Type: text/css
+
+#interContainer{
+position: absolute;
+width: 500px; /*Width of popupbox box*/
+left: 0;
+top: 0;
+padding: 15px;
+padding-top: 0;
+background-color: #222A56;
+border: 1px solid black;
+visibility: hidden;
+z-index: 6;
+}
+
+#interContainer .headerbar td{ /*CSS for header bar of popupbox box*/
+color: White;
+font-size: 120%;
+padding: 5px 0;
+}
+
+#interContainer .headerbar td a{ /*CSS for header bar links of popupbox box*/
+color: White;
+text-decoration: none;
+}
+
+
+#interContent{ /*CSS for div that holds the content to show*/
+border: 1px solid gray;
+
+background-color: white;
+}
+
+#interVeil{ /*CSS for background veil that covers entire page while popupbox box is visible*/
+position: absolute;
+background-color: #000000;
+right: 0;
+width: 10px;
+top: 0;
+z-index: 5;
+visibility: hidden;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+opacity: 0.8;
+}

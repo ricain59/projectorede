@@ -1,0 +1,362 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 15 Dec 2011 00:43:03 GMT
+Content-Type: text/css
+Content-Length: 6515
+Last-Modified: Wed, 27 Dec 2006 08:55:29 GMT
+Connection: close
+Accept-Ranges: bytes
+
+/*------------------------------------------------------------------*/
+/* Стили используемые в DataLife Engine     			            */
+/*------------------------------------------------------------------*/
+
+form {  PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px;
+}
+
+/* 
+ * ========================================
+ * Вывод архива 
+ * ========================================
+ */
+.archives {
+	vertical-align: top;
+	font-family:Tahoma;
+	font-size:11px;
+	margin-top:6px;
+	margin-left:20px;
+	margin-bottom:10px;
+}
+.archives a {
+	font-family:Tahoma;
+	font-size:11px;
+	color:#43637E;
+}
+/* 
+ * ========================================
+ * Цитата и скрытый текст
+ * ========================================
+ */
+ .quote {
+	color: #000000;
+	FONT-size: 10pt; 
+	text-align:justify;
+	background-color: #edf4fc; 
+	border-width:1; 
+	border-color:rgb(190,190,190); 
+	border-style:dotted;
+	padding: 5px;
+	}
+/* 
+ * ========================================
+ * Teг CODE
+ * ========================================
+ */
+ .scriptcode {
+	color: #000000;
+	FONT-size: 8pt ; 
+	text-align:left;
+	background-color:#edf4fc; 
+	border-width:1; 
+	border-color:rgb(190,190,190); 
+	border-style:dotted;
+	padding: 5px;
+	}
+/* 
+ * ========================================
+ * Календарь 
+ * ========================================
+ */
+
+.weekday-active-v {
+	color: #4974a3;
+	font-family:tahoma;
+	 font-size:11px;
+}
+.day-active-v {
+	color: #4974a3;
+	font-family:tahoma;
+	 font-size:11px;
+}
+.calendar {
+	 font-family:verdana;
+	 font-size:11px
+}
+.calendar td, th {
+	 font-family:verdana;
+	 font-size:11px;
+	 text-decoration: none;
+	 padding: 3px;
+}
+
+.weekday {
+	color: #804040;
+	font-family:verdana;
+	font-size:11px;
+}
+.weekday-active {
+	color: #804040;
+	font-family:verdana;
+	font-size:11px;
+}
+.day-active {
+	color: #804040;
+	font-family:verdana;
+	font-size:11px;
+}
+.day-active a,
+.weekday-active a,
+.day-active-v a,
+.weekday-active-v a
+ {
+text-decoration: underline;
+}
+
+.monthlink {
+color: #4974a3;
+font-family:tahoma;
+font-size:11px;
+text-decoration: none;
+}
+
+/* 
+ * ========================================
+ * Рейтинг 
+ * ========================================
+ */
+
+.rating {
+	background: #FFF;
+	border: 1px solid #E0E0E0;
+	color: #666666;
+	font-family: Tahoma, helvetica, sans-serif;
+	vertical-align: middle;
+	font-size: 11px; 
+	vertical-align: middle;
+height:18px;
+}
+
+/* 
+ * ========================================
+ * BB коды
+ * ========================================
+ */ 
+.bbcodes {
+	background: #FFF;
+	border: 1px solid #E0E0E0;
+	color: #666666;
+	font-family: Verdana, Tahoma, helvetica, sans-serif;
+	padding: 2px;
+	vertical-align: middle;
+	font-size: 10px; 
+	vertical-align: middle;
+	margin:2px;
+	height: 21px;
+}
+
+div.editor_button {
+	float:left;
+	cursor:pointer;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+
+div.editor_buttoncl {
+	float:left;
+	cursor:pointer;
+	padding-left: 1px;
+	padding-right: 1px;
+	border-left: 2px solid #666666;
+	border-right: 2px solid #666666;
+}
+
+span.editor_button {
+	
+	cursor:pointer;
+	padding-left: 2px;
+	padding-right: 2px;
+	color:1e90ff;
+	border:1px solid #666666;
+}
+
+
+span.editor_buttoncl {
+	
+	cursor:pointer;
+	padding-left: 2px;
+	padding-right: 2px;
+	color:0000ff;
+	border-top:1px solid #666666;
+	border-bottom:1px solid #666666;
+	border-left: 2px solid #666666;
+	border-right: 2px solid #666666;
+}
+.editbclose {
+	float:right;
+	cursor:pointer;
+}
+
+/* 
+ * ========================================
+ * Дополнительные поля
+ * ========================================
+ */ 
+
+.xfields textarea {
+width:500px; height:90px; font-family:verdana; font-size:11px; border:1px solid #E0E0E0;
+}
+.xfields input {
+width:250px; height:18px; font-family:verdana; font-size:11px; border:1px solid #E0E0E0;
+}
+.xfields select {
+height:18px; font-family:verdana; font-size:11px; border:1px solid #E0E0E0;
+}
+
+/* 
+ * ========================================
+ * Персональные сообщения
+ * ========================================
+ */ 
+
+.pm_head {
+	FONT: 11px Verdana; 
+	color:#6a5acd;
+}
+.pm_list {
+	color: #888888;
+	font-size: 11px;
+	font-family: tahoma;
+	}
+.pm_list a {
+	color: #4b719e;
+	font-size: 11px;
+	font-family: tahoma;
+}
+
+/* 
+ * ========================================
+ * Выпадающее меню
+ * ========================================
+ */ 
+
+#dropmenudiv{
+border:1px solid white;
+border-bottom-width: 0;
+font:normal 10px Verdana;
+background-color: #6497CA;
+line-height:20px;
+margin:2px;
+filter: alpha(opacity=95, enabled=1) progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=3);
+}
+
+#dropmenudiv a{
+display: block;
+text-indent: 3px;
+border: 1px solid white;
+padding: 1px 0;
+MARGIN: 1px;
+color: #FFF;
+text-decoration: none;
+font-weight: bold;
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color: #FDD08B;
+color: #000;
+}
+
+/* 
+ * ========================================
+ * Результаты поиска
+ * ========================================
+ */
+
+.sresult  {
+	text-align: justify;
+	font-family:verdana;
+    FONT-WEIGHT: normal;
+    LINE-HEIGHT: 16px;
+	font-size:12px;
+	color:#606D77;
+}
+
+/* 
+ * ========================================
+ * Опрос
+ * ========================================
+ */
+
+.vote  {
+	color: #717171;
+	font-size: 11px;
+	font-family: tahoma;
+}
+
+/* 
+ * ========================================
+ * Уведомление о получении новых PM
+ * ========================================
+ */
+
+#newpm {
+	position:absolute;
+	height:250px;
+	width:400px;
+	padding:4px;
+	background-color:#FDFDFD;
+	border:1px solid #BBB;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 135%;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4);
+	}
+
+#newpmheader {
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	height:20px;
+	color: #000;
+    font-weight: bold;
+	background-color:#E3C0C0;
+	font-family:verdana, sans-serif;
+	font-size:11px;
+	cursor:move;
+	}
+
+#newpm a{
+	background: transparent;
+	color: #4D6A8A;
+	text-decoration: none;
+}
+
+#newpm a:hover{
+	background: transparent;
+	color: #4D6A8A;
+	text-decoration: underline;
+}
+/* 
+ * ========================================
+ * Ссылка на скачивание прикрепленного файла
+ * ========================================
+ */
+#attachment {
+	color: gray;
+	}
+/*
+*vika
+*/	
+	
+
+.news table td.pm_head
+{
+	background-color: #edf4fc;
+	font-weight : bold;
+	font-size: 11px;
+}
+
