@@ -11,6 +11,9 @@ public class Cache
     public String basePath = null;
     public Hashtable htable; 
 
+    /*
+     * Contrutor
+     */
     public Cache()
     {
         htable = new Hashtable();
