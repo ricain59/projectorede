@@ -1,11 +1,11 @@
 HTTP/1.0 302 Found
-Location: https://googleads.g.doubleclick.net/pagead/drt/si?p=CAA&ut=AFAKxlQAAAAATuk6defqOHgBO-odvVGN-ubVBEv-kPeK
+Location: https://googleads.g.doubleclick.net/pagead/drt/si?p=CAA&ut=AFAKxlQAAAAATulGIW7ygP2HJhZDfK41wLOSTG5X2Ju-
 Cache-Control: private
 X-Frame-Options: ALLOWALL
 Content-Type: text/html; charset=UTF-8
-Set-Cookie: PREF=ID=3cae14a96a29d5f7:TM=1323906801:LM=1323906801:S=7kO0HCP3RTK09O-E; expires=Fri, 13-Dec-2013 23:53:21 GMT; path=/; domain=.google.com
+Set-Cookie: PREF=ID=c60505a67c78ac80:TM=1323909789:LM=1323909789:S=pSDbtFUV1-p2DYo1; expires=Sat, 14-Dec-2013 00:43:09 GMT; path=/; domain=.google.com
 X-Content-Type-Options: nosniff
-Date: Wed, 14 Dec 2011 23:53:21 GMT
+Date: Thu, 15 Dec 2011 00:43:09 GMT
 Server: safe
 Content-Length: 304
 X-XSS-Protection: 1; mode=block
@@ -14,5 +14,5 @@ X-XSS-Protection: 1; mode=block
 <TITLE>302 Moved</TITLE></HEAD><BODY>
 <H1>302 Moved</H1>
 The document has moved
-<A HREF="https://googleads.g.doubleclick.net/pagead/drt/si?p=CAA&amp;ut=AFAKxlQAAAAATuk6defqOHgBO-odvVGN-ubVBEv-kPeK">here</A>.
+<A HREF="https://googleads.g.doubleclick.net/pagead/drt/si?p=CAA&amp;ut=AFAKxlQAAAAATulGIW7ygP2HJhZDfK41wLOSTG5X2Ju-">here</A>.
 </BODY></HTML>

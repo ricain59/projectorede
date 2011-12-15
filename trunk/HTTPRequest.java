@@ -7,12 +7,12 @@ import java.util.LinkedList;
  */
 public class HTTPRequest {
 	
-	public static final String GET = "GET";
-	public static final String PUT = "PUT";
-	public static final String POST = "POST";
+	private static final String GET = "GET";
+	private static final String PUT = "PUT";
+	private static final String POST = "POST";
 	
-	public String type; // operation type EX: GET, PUT or POST
-	public String requestedObject; // Ex: /index.hmtl
+	private String type; // operation type EX: GET, PUT or POST
+	private String requestedObject; // Ex: /index.hmtl
 	public String arrayRequestObject[];
 	public String version; // protocol version
 	

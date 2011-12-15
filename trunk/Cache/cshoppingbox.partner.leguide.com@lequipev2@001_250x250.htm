@@ -1,10 +1,10 @@
 HTTP/1.1 200 OK
-Date: Wed, 14 Dec 2011 23:53:40 GMT
+Date: Thu, 15 Dec 2011 00:26:12 GMT
 Server: PWS/1.7.3.7
-X-Px: ht lhr-agg-n43.panthercdn.com
+X-Px: ht lhr-agg-n33.panthercdn.com
 Cache-Control: max-age=1200
-Expires: Thu, 15 Dec 2011 00:00:51 GMT
-Age: 769
+Expires: Thu, 15 Dec 2011 00:34:05 GMT
+Age: 727
 Content-Length: 14524
 Content-Type: text/html
 Connection: close
@@ -88,4 +88,19 @@ function search(w,idx,sheet,type) {
 			          	if (theData[sheet] == null) {
 			          		theData[sheet] = new Array();
 			          	}	
-			          	theData[sheet][itemCarousel] = '<li onclick="lg_u(\''+item.url+'\');return false;"><img class="loadable-image" width="90" height="90" src="'+item.img+'" alt="" /><h2>'+item.title+'</h2><div class="price"><div class=
+			          	theData[sheet][itemCarousel] = '<li onclick="lg_u(\''+item.url+'\');return false;"><img class="loadable-image" width="90" height="90" src="'+item.img+'" alt="" /><h2>'+item.title+'</h2><div class="price"><div class="p2">'+item.price+' &euro;</div></div><div class="shop">'+item.shop+'</div></li>';
+			          	theCarousel.add(itemCarousel+1,theData[sheet][itemCarousel]);
+			          	itemCarousel++;
+			          });
+		        	} else {
+		        		jQuery(".c .state").html('Nous n\'avons pas trouvé de résultat sur cette recherche. Assurez-vous que le terme recherché est correctement orthographié');
+		        	}
+			        jQuery(".c .state").removeClass("ajax-loading");
+		        });
+		}
+	}
+}
+</SCRIPT>
+<style>
+*{margin:0;padding:0}
+body{width:248px;heig

@@ -1,0 +1,15 @@
+HTTP/1.0 200 OK
+Vary: Accept-Encoding
+Content-Type: text/x-cross-domain-policy
+Last-Modified: Wed, 28 Sep 2011 03:00:23 GMT
+Date: Thu, 15 Dec 2011 00:43:15 GMT
+Expires: Thu, 22 Dec 2011 00:43:15 GMT
+Cache-Control: public, max-age=604800
+X-Content-Type-Options: nosniff
+Server: sffe
+X-XSS-Protection: 1; mode=block
+
+<?xml version="1.0"?>
+<cross-domain-policy>
+  <allow-access-from domain="*" />
+</cross-domain-policy>

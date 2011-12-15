@@ -2,14 +2,13 @@ HTTP/1.0 200 OK
 P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA PVD OTP OUR OTR IND OTC"
 Content-Type: text/javascript; charset=ISO-8859-1
 Last-Modified: Thu, 08 Dec 2011 00:11:30 GMT
-Date: Wed, 14 Dec 2011 23:48:40 GMT
-Expires: Thu, 15 Dec 2011 23:48:40 GMT
+Date: Thu, 15 Dec 2011 00:43:10 GMT
+Expires: Fri, 16 Dec 2011 00:43:10 GMT
+Cache-Control: public, max-age=86400
 X-Content-Type-Options: nosniff
 Content-Disposition: attachment
 Server: cafe
 X-XSS-Protection: 1; mode=block
-Cache-Control: public, max-age=86400
-Age: 281
 
 (function(){AdSenseGraphics.POS_TOP_LEFT_=0;AdSenseGraphics.POS_TOP_RIGHT_=1;AdSenseGraphics.POS_BOTTOM_LEFT_=2;AdSenseGraphics.POS_BOTTOM_RIGHT_=3;AdSenseGraphics.X_INTERCEPT_TOP_=0;AdSenseGraphics.X_INTERCEPT_BOTTOM_=1;AdSenseGraphics.Y_INTERCEPT_LEFT_=2;AdSenseGraphics.Y_INTERCEPT_RIGHT_=3;AdSenseGraphics.USER_AGENT_=navigator.userAgent;AdSenseGraphics.IS_OPERA_="undefined"!=typeof opera;AdSenseGraphics.IS_IE_=!AdSenseGraphics.IS_OPERA_&&-1!=AdSenseGraphics.USER_AGENT_.indexOf("MSIE");
 AdSenseGraphics.IS_SAFARI_=!AdSenseGraphics.IS_OPERA_&&-1!=AdSenseGraphics.USER_AGENT_.indexOf("Safari");AdSenseGraphics.S_CURVE_CLASS_NAME_="curve";AdSenseGraphics.ROUNDED_CORNER_BG_CLASS_NAME_="rc_bg";AdSenseGraphics.ROUNDED_CORNER_BORDER_CLASS_NAME_="rc_border";AdSenseGraphics.SIGMOID_FUNCTION_WIDTH=12;AdSenseGraphics.SIGMOID_FUNCTION_OFFSET=6;function AdSenseGraphics(){}AdSenseGraphics.prototype.getPixelLeftX_=function(a){return a};

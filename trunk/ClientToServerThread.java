@@ -6,10 +6,8 @@ import java.io.OutputStreamWriter;
 
 class ClientToServerThread extends Thread
 {
-
     private OutputStream toHost;
     private ArrayList pedido;
-
     public ClientToServerThread(DataOutputStream toHost, ArrayList pedido) throws Exception 
     {
         this.toHost = toHost;
@@ -27,7 +25,6 @@ class ClientToServerThread extends Thread
             }
             out.println();
             out.flush();
-
         }
         catch (Exception e) {
             System.out.println("Erro ClientToServerThread : " + e);

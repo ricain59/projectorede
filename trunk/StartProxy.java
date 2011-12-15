@@ -9,7 +9,6 @@ public class StartProxy
 
     public StartProxy()
     {
-
         System.out.println("Start do proxy");
         proxyServer = new ProxyThread(8080, cache);
     }

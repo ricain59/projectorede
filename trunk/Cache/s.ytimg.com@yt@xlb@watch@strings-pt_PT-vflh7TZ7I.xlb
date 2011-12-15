@@ -1,0 +1,82 @@
+HTTP/1.0 200 OK
+Cache-Control: public, max-age=31104000
+Expires: Sun, 26 Dec 2032 06:12:01 GMT
+Vary: Accept-Encoding
+Last-Modified: Wed, 14 Dec 2011 18:45:01 GMT
+ETag: "98226649"
+Content-Type: application/xml
+Accept-Ranges: bytes
+Date: Thu, 15 Dec 2011 00:43:15 GMT
+Server: lighttpd-yt/1.4.18
+
+<?xml version="1.0"?>
+<localizationbundle locale="pt-PT">
+<messages>
+	<msg name="ADVERTISEMENT" desc="Advertisement string used to denote ad content">Anúncio</msg>
+	<msg name="ANNOTATIONS_OFF" desc="video player tooltip. Annotations allows users to add comments over their videos">Desactivar notas</msg>
+	<msg name="ANNOTATIONS_ON" desc="video player tooltip. Annotations allows users to add comments over their videos">Activar notas</msg>
+	<msg name="ANNOTATIONS_UNAVAILABLE" desc="video player tooltip. Annotations allows users to add comments over their videos">As notas não estão disponíveis</msg>
+	<msg name="AUTO" desc="Label for the automatic quality option">Auto</msg>
+	<msg name="CAPTIONS_OFF" desc="video player tooltip">Desactivar legendas</msg>
+	<msg name="CAPTIONS_ON" desc="video player tooltip">Activar legendas</msg>
+	<msg name="CAPTIONS_UNAVAILABLE" desc="video player tooltip">As legendas não estão disponíveis</msg>
+	<msg name="CHANGE_QUALITY" desc="Tooltip for the button that allows you to change the video quality">Alterar a qualidade</msg>
+	<msg name="CLICK_TO_ADVERTISER_WEBSITE" desc="click to advertiser website">Clicar no Web site do anunciante</msg>
+	<msg name="COPY_DEBUG_INFO" desc="Option in the right click menu over a player to copy diagnostic information to the clipboard (eg: frames per second, file size). This is most useful when users report video problems to us.">Copiar informações de depuração</msg>
+	<msg name="COPY_VIDEO_URL" desc="Option in the right click menu over a player to copy the url of the video's watch page to the clipboard.">Copiar URL do vídeo</msg>
+	<msg name="COPY_VIDEO_URL_AT_TIME" desc="Option in the right click menu over a player to copy the url of the video's watch page at the current video time to the clipboard.">Copiar URL do vídeo à hora actual</msg>
+	<msg name="EMBED_COPY" desc="Button label to copy embed code to clipboard">Copiar código incorporado</msg>
+	<msg name="ERROR_EXPIRED" desc="In-player error message explaining the rental period for a video has passed">O aluguer do vídeo expirou.</msg>
+	<msg name="ERROR_GENERIC" desc="Generic in-player error message when a video cannot be played.">Ocorreu um erro, tente novamente mais tarde.</msg>
+	<msg name="EXIT_FULLSCREEN" desc="video player tooltip. Leave the mode where the player takes up the whole screen">Sair do ecrã inteiro</msg>
+	<msg name="EXPAND" desc="video player tooltip. Make the player larger on the page">Expandir</msg>
+	<msg name="FEATURED" desc="Indicates that an ad or video is a Featured Video">Vídeo em destaque</msg>
+	<msg name="FROM" desc="end of play display showing owner of recommended video">De:</msg>
+	<msg name="FULLSCREEN" desc="video player tooltip. Enter the mode where the player takes up the whole screen">Ecrã inteiro</msg>
+	<msg name="JUST_WATCHED" desc="Label shown above the Replay, Like and Share buttons in the player endscreen to categorize how these buttons pertain to the just finished video">Acabado de ver</msg>
+	<msg name="IF_NO_CHOICE" desc="Label shown above a series of choices and a countdown timer (5... 4... 3... 2... 1...)">Se não tiver sido escolhida nenhuma opção, o seu vídeo será reproduzido com intervalos normais</msg>
+	<msg name="guiDr6h3pvV0gJydta0U-A" desc="/watch - action bar - indicates that the user likes this video">Gosto</msg>
+	<msg name="LARGE_PLAYER" desc="Tooltip for video player button which changes the viewport size to 854x480. Larger of 2 sizes and appears next to fullscreen button.">Leitor grande </msg>
+	<msg name="LIVE_EVENT_COUNTDOWN" desc="Label for a countdown to a live event scheduled start time. TIME_LEFT is the time, in format D:HH:MM:SS (e.g. 4:12:05:20, meaning that the event is scheduled to start in 4 days, 12 minutes, 5 minutes and 20 seconds from now)">começa daqui a TIME_LEFT</msg>
+	<msg name="MORE_MENU_ITEM" desc="more menu items link">(mais)</msg>
+	<msg name="MUTE" desc="video player tooltip. Turns off the sound from the video player">Desactivar som</msg>
+	<msg name="NEXT" desc="video player tooltip. Go to the next video in the current list">Seguinte</msg>
+	<msg name="NOW_LIVE" desc="Label to indicate that a live event broadcasting has started and is in progress (live) right now">Agora em direto</msg>
+	<msg name="OR" desc="label between two buttons offering two choices: (A) or (B).">ou</msg>
+	<msg name="ORIGINAL" desc="Label for the original quality level, this level is named as it is the quality of the originally uploaded video">Original</msg>
+	<msg name="POPOUT" desc="video player tooltip. Open the current video player in a new window">Separar</msg>
+	<msg name="QUALITY_LITE" desc="Appears in video player's quality menu. Indicates the lowest quality level YouTube offers (one video frame every 2 seconds). Only available to users with low bandwidth.">240p - Lite</msg>
+        <msg name="QUALITY_SETTINGS" desc="Appears in the title of the quality settings dialog.">Quality Settings</msg>
+	<msg name="REPLAY" desc="Replay button to replay the last video">Reproduzir</msg>
+	<msg name="REPORT_ISSUE" desc="Navigate to the help center playback problem reporting page">Comunicar problema de reprodução</msg>
+	<msg name="RESPOND" desc="Label for button to open application to record a quick capture response video">Responder</msg>
+	<msg name="RESUMING_VIDEO" desc="Shown in a tooltip above the video player seekbar whenever a visitor returns to the site to finish watching a long video.">A retomar o vídeo...</msg>
+	<msg name="SETTINGS" desc="Link to the user's account settings for video playback">Definições...</msg>
+	<msg name="SHARE" desc="menu button text to open the share dialog page">partilhar</msg>
+	<msg name="SHRINK" desc="video player tooltip. Make the player smaller on the page">Encolher</msg>
+	<msg name="SHOW_VIDEO_INFO" desc="Option in the right click menu over a player to show video diagnostics (eg: frames per second, file size)">Mostrar informações do vídeo</msg>
+	<msg name="SIGN_IN_TO_LIKE" desc="Like button tooltip explaining how to enable the like button by signing in">Iniciar sessão para gostar deste vídeo</msg>
+	<msg name="SMALL_PLAYER" desc="Tooltip for video player button which changes the viewport size to 640x360. Smaller of 2 sizes and appears next to fullscreen button.">Leitor pequeno</msg>
+	<msg name="SPEED_TEST" desc="Navigate to the speed test page">Realizar teste de velocidade</msg>
+	<msg name="STOP_DOWNLOAD" desc="Option in the right click menu over a player to stop downloading the video">Parar transferência</msg>
+	<msg name="THREED_CONVERTED" desc="Tooltip in the player explaining that a 3D video is converted from 2D">Convertido de 2D</msg>
+	<msg name="THREED_TOOLTIP" desc="Tooltip in the player for the 3D module button: clicking on it brings up a menu with 3D video options">Opções 3D</msg>
+	<msg name="UNMUTE" desc="video player tooltip. Turn on the sound from the video playe">Reactivar som</msg>
+	<msg name="UP_NEXT" desc="Label shown above the 'best' suggested video in the player endscreen">A seguir</msg>
+	<msg name="URL_NAVIGATE" desc="Button label to visit the current video at youtube.com">Ver em YouTube.com</msg>
+	<msg name="VIDEO_WILL_RESUME_IN" desc="countdown text till video resumes">Anúncio: o seu anúncio recomeça daqui a NUM_SECONDS segundos</msg>
+	<msg name="VIDEO_WILL_START_IN" desc="countdown text till video starts">Anúncio: o seu vídeo começa daqui a NUM_SECONDS segundos.</msg>
+	<msg name="VIEWS" desc="end of play display showing how many plays the recommended video has">Visualizações:</msg>
+	<msg name="WATCH_HD" desc="Tooltip to toggle on high definition">Ver em HD</msg>
+	<msg name="WATCH_IN_NEW_WINDOW" desc="Option in the right click menu on the end screen to watch a selected video in a new window">Ver vídeo numa janela nova</msg>
+	<msg name="WATCH_INTERRUPTED" desc="Message presenting the choice watch several ads rather than one (longer) ad."><b>NUM_BREAKS commercial breaks</b>Visualizar com</msg>
+	<msg name="WATCH_UNINTERRUPTED" desc="Message presenting the choice to pick which ad to watch."><b>uninterrupted</b>Veja o seu vídeo depois de escolher um anúncio:</msg>
+	
+	<msg name="_Hw4ZvdHF_WwSC6XI-0ZHQ" desc="label for link to playback settings for captions">Definições de Reprodução da Conta</msg>
+	<msg name="TNdLM3xPu1qlz0Gufmnimg" desc="/account_customize_youtube: video quality settings">Tenho uma ligação lenta. Nunca reproduzir vídeo de qualidade superior.</msg>
+	<msg name="qA0teMuvsN2D55tjlJIhYw" desc="/account_customize_youtube: video quality settings">Escolher sempre a melhor opção para mim com base no tamanho do meu leitor.</msg>
+	<msg name="fkktZHrjhD4qN049NSUM5g" desc="/account_customize_youtube - quality settings">Reproduzir sempre em alta definição (HD) ao mudar para ecrã inteiro (se disponível).</msg>
+	<msg name="vMWTAp2lJ447xdyPRK61CQ" desc="link: sign in to YouTube">Iniciar sessão</msg>
+	<msg name="F3r4a6FP4lRMfGkD3NOO_Q" desc="Button label for closing the trim panel in the video editor">Concluído</msg>
+</messages>
+</localizationbundle>
