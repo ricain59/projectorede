@@ -7,6 +7,9 @@ public class ProxyThread extends Thread
     Cache cache;
     private int porta;
 
+    /*
+     * Recebe os dados necessario para iniciar uma thread na porta certa
+     */
     public ProxyThread(int porta, Cache cache) 
     {
         this.porta = porta;
@@ -14,6 +17,10 @@ public class ProxyThread extends Thread
         start();
     }
 
+    /*
+     * Esse método recebe o ip da mquina que lhe esta a pedir informações.
+     * E depois inicia outro thread para receber mais pedido.
+     */
     public void run() {
         try {
             System.out.println("Servidor Proxy na porta : " + porta);

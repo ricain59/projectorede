@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=porta\ cache
 comment0.target=ProxyThread(int,\ Cache)
+comment0.text=\r\n\ Recebe\ os\ dados\ necessario\ para\ iniciar\ uma\ thread\ na\ porta\ certa\r\n
 comment1.params=
 comment1.target=void\ run()
+comment1.text=\r\n\ Esse\ m\u00E9todo\ recebe\ o\ ip\ da\ mquina\ que\ lhe\ esta\ a\ pedir\ informa\u00E7\u00F5es.\r\n\ E\ depois\ inicia\ outro\ thread\ para\ receber\ mais\ pedido.\r\n
 numComments=2

@@ -1,261 +1,126 @@
-import java.io.*; 
-import java.util.*;
-import java.net.*;
-
-// 
-// Class:     Cache
-// Abstract:  manages all caching activities.
-//
+import java.util.Hashtable;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.File;
+import java.util.Date;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Cache
 {
     public String basePath = null;
-    //public long MinFreeSpace;// in bytes
     public Hashtable htable; 
-    //Config config;
 
     public Cache()
     {
-
-        // Initialize variables
-        //config = configObject;
-        //MinFreeSpace = 15000;
         htable = new Hashtable();
-
-        // Create directory for caching
+        // Criação do directorio cache
         File cacheDir = new File("Cache");
         cacheDir.mkdirs();
         basePath = cacheDir.getAbsolutePath();
-
-        // Delete all files in cache directory
-        //
-        //int i;
         File file = new File(basePath);;
-        //String filename;
-
-        // Get list of files in cache direcotry
+        // obtem toda a lista de ficheiro exustente na cache
         String files[] = file.list();
-
     }
 
-    // isCachable - check if URL reply should be cached
-    public boolean IsCachable(String rawUrl)//uso
+    /*
+     * Verifica se o url pode ser inserido na cache (url com ? ou !)
+     */
+    public boolean IsCachable(String urlRecebido)
     {
-        return (getFileName(rawUrl) != null);
+        return (getFileName(urlRecebido) != null);
     }
 
-    // IsCached - Check if we have in cache what the client wants.
-    public boolean IsCached(String rawUrl)//uso esse metodo
+    /*
+     * Verifica se o url esta presente na cache
+     */
+    public boolean IsCached(String urlRecebido)
     {
-        // Generate filename from URL
-        String filename = getFileName(rawUrl);
+        String filename = getFileName(urlRecebido);
         if (filename == null)
             return false;
-
-        // Search in hash table
+        // Procura na hastable
         if (htable.get(filename) != null)
         {
             return true;
         }else{
             return false;
         }
-
     }
-    // 
-    // getFileInputStream - When this method is called, it means a cache hit.
-    //   We update the date field in the hash table entry and return a
-    //   FileInputStream object corresponding to the file caching the info.
-    //
-    public FileInputStream getFileInputStream(String rawUrl)
+    
+    /*
+     * Esse método é chamado quando se acede a cache para ir buscar os ficheiros
+     * necessario
+     * E atualiza-se a data dos ficheiros.
+     */
+    public FileInputStream getFileInputStream(String urlRecebido)
     {
-        FileInputStream in = null;
+        FileInputStream fileStream = null;
         try
         {
-            String filename = getFileName(rawUrl);
-
-            // Update the hash table entry with current date as value
+            String filename = getFileName(urlRecebido);
             htable.put(filename,new Date());
-
-            in = new FileInputStream(filename);
+            fileStream = new FileInputStream(filename);
         }
-        catch (FileNotFoundException fnf)
+        catch (FileNotFoundException filenotfound)
         {
             try
-
             {
-                System.out.println("File Not Found:"+getFileName(rawUrl)+" "+fnf);
+                System.out.println("File Not Found:"+getFileName(urlRecebido)+" "+filenotfound);
             }
             catch (Exception e) 
-            {}
+            {
+            }
         }
         finally
         {
-            return in;
+            return fileStream;
         }
     }
 
-    // 
-    // getFileoutputStream - When this method is called, it means we're about
-    //   to cache a new object. We generate a file name, and return 
-    //   a corresponding FileOutputStream object.
-    //
-    public FileOutputStream getFileOutputStream(String rawUrl)//uso
+    /*
+     * Método chamada quando queremos criar um novo objeto na cache 
+     */
+    public FileOutputStream getFileOutputStream(String urlRecebido)
     {
-        FileOutputStream out = null;
+        FileOutputStream fileStream = null;
         String filename;
         try
         {
-            filename = getFileName(rawUrl);
+            filename = getFileName(urlRecebido);
 
-            out = new FileOutputStream(filename);
+            fileStream = new FileOutputStream(filename);
         }
         catch (IOException e)
-        {}
+        {
+        }
         finally
         {
-            return out;
+            return fileStream;
         }
     }   
 
-   
-
-    //
-    // Add new entry to hash table
-    //
+    /*
+     * Permite adicionar mas uma entrada na hastable
+     */
     public synchronized void AddToTable(String rawUrl)
     {
         String filename = getFileName(rawUrl);
-
-        // Add filename to hash table with the current date as its value
         htable.put(filename,new Date());
-        //config.increaseFilesCached();
     }
-    
-    //
-    // Convert the URL to filename - this method parses the URL and
-    //   generate filename only if the URL is to be cached.
-    //   We do not cache URLs containing '?', "cgi-bin" and
-    //   a list of not-to-cached-URLs as instructed by the proxy administrator.
-    //
-    private String getFileName(String rawUrl)//uso
+
+    /*
+     * Convert o url para uma nova string mas só se o url da para inserir na cache
+     * Todos os url com ? , cgi-bin não são inseridos na cache
+     */
+    private String getFileName(String rawUrl)
     {
         String filename = basePath + File.separatorChar + rawUrl.substring(7).replace('/','@');
-
         if (filename.indexOf('?') != -1 || filename.indexOf("cgi-bin") != -1)
         {
             return null;
         }
-
         return filename;
-    }
-    
-     //
-    // Decrement Cache Free Space (In Bytes)
-    //
-    //     public synchronized void DecrementFreeSpace(int nbytes, String rawUrl)
-    //     {
-    //         config.setBytesCached(config.getBytesCached() + nbytes);
-    //         if (config.getBytesFree() <= MinFreeSpace)
-    //             MakeFreeSpace(rawUrl);
-    //     }
-    
-    
-    
-    //
-    // clean - delete the cached files
-    //
-    //     public synchronized void clean()
-    //     {
-    //         System.out.println("Cleaning the cache...");
-    // 
-    //         // Enumerate the hash table
-    //         for (Enumeration keys = htable.keys(); keys.hasMoreElements() ;)
-    //         {
-    //             String filename = (String)keys.nextElement();
-    //             File file = new File(filename);
-    //             long nbytes = file.length();
-    //             boolean result = file.delete();
-    //             if (result == true)
-    //             {
-    //                 // Delete entry in hash table
-    //                 htable.remove(filename);
-    //                 config.decreaseFilesCached();
-    // 
-    //                 // Increment free space
-    //                 config.setBytesCached(config.getBytesCached() - nbytes);
-    //             }
-    //             else
-    //             {
-    //                 // Another thread holds this file open for writing
-    //             }
-    //         }
-    //         config.setHits(0);
-    //         config.setMisses(0);
-    //         System.out.println("Cache is clean.");
-    //     }
-
-    //
-    // Private methods
-    //
-
-    //
-    // MakeFreeSpace - throw LRU file until free space is above min level
-    //
-    //     private synchronized void MakeFreeSpace(String rawUrl)
-    //     {
-    //         String filename,
-    //         LRUfilename;
-    //         Date   date,
-    //         minDate;
-    // 
-    //         minDate = new Date();
-    //         while (config.getBytesFree() < MinFreeSpace)
-    //         {
-    //             filename = LRUfilename = null;
-    //             date = null;
-    // 
-    //             if (htable.isEmpty())
-    //             {
-    //                 System.out.println("Could not make free space: Hash table empty...");
-    //                 return;
-    //             }
-    // 
-    //             //
-    //             // Enumerate the hash table entries to find the LRU file
-    //             //
-    //             for (Enumeration keys = htable.keys(); keys.hasMoreElements() ;)
-    //             {
-    //                 filename = (String)keys.nextElement();
-    //                 date = (Date)htable.get(filename);
-    //                 if (date.before(minDate))
-    //                     LRUfilename = filename;
-    //             }
-    // 
-    //             //
-    //             // Delete the LRU file
-    //             //
-    //             File LRUfile = new File(LRUfilename);
-    //             long nbytes = LRUfile.length();
-    //             boolean result = LRUfile.delete();
-    //             if (result == true)
-    //             {
-    //                 // Delete entry in hash table
-    //                 htable.remove(LRUfilename);
-    //                 config.decreaseFilesCached();
-    // 
-    //                 // Increment free space
-    //                 config.setBytesCached(config.getBytesCached() - nbytes);
-    //             }
-    //             else
-    //             {
-    //                 // Another thread holds this file open for writing
-    //                 System.out.println("File "+LRUfilename+" could not be deleted...");
-    //                 return;
-    //             }
-    //         }
-    //     }
-
-    
-    
+    }   
 }
 

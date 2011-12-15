@@ -1,16 +1,22 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Cache()
-comment1.params=rawUrl
+comment1.params=urlRecebido
 comment1.target=boolean\ IsCachable(java.lang.String)
-comment2.params=rawUrl
+comment1.text=\r\n\ Verifica\ se\ o\ url\ pode\ ser\ inserido\ na\ cache\ (url\ com\ ?\ ou\ \!)\r\n
+comment2.params=urlRecebido
 comment2.target=boolean\ IsCached(java.lang.String)
-comment3.params=rawUrl
+comment2.text=\r\n\ Verifica\ se\ o\ url\ esta\ presente\ na\ cache\r\n
+comment3.params=urlRecebido
 comment3.target=java.io.FileInputStream\ getFileInputStream(java.lang.String)
-comment4.params=rawUrl
+comment3.text=\r\n\ Esse\ m\u00E9todo\ \u00E9\ chamado\ quando\ se\ acede\ a\ cache\ para\ ir\ buscar\ os\ ficheiros\r\n\ necessario\r\n\ E\ atualiza-se\ a\ data\ dos\ ficheiros.\r\n
+comment4.params=urlRecebido
 comment4.target=java.io.FileOutputStream\ getFileOutputStream(java.lang.String)
+comment4.text=\r\n\ M\u00E9todo\ chamada\ quando\ queremos\ criar\ um\ novo\ objeto\ na\ cache\ \r\n
 comment5.params=rawUrl
 comment5.target=void\ AddToTable(java.lang.String)
+comment5.text=\r\n\ Permite\ adicionar\ mas\ uma\ entrada\ na\ hastable\r\n
 comment6.params=rawUrl
 comment6.target=java.lang.String\ getFileName(java.lang.String)
+comment6.text=\r\n\ Convert\ o\ url\ para\ uma\ nova\ string\ mas\ s\u00F3\ se\ o\ url\ da\ para\ inserir\ na\ cache\r\n\ Todos\ os\ url\ com\ ?\ ,\ cgi-bin\ n\u00E3o\ s\u00E3o\ inseridos\ na\ cache\r\n
 numComments=7
