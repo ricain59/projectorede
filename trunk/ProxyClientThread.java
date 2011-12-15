@@ -71,15 +71,15 @@ public class ProxyClientThread extends Thread{
                 if(cache.IsCached(requestedObject))
                 {
                     fromCache = new DataInputStream(cache.getFileInputStream(requestedObject));
-                    //sendToBrowser(fromCache);
-                    byte data[] = new byte[4096];
-                    int count;
-                    while (-1 < ( count  = fromCache.read(data)))
-                    {
-                        toBrowser.write(data,0,count);
-                    }
-                    toBrowser.flush();
-                    fromCache.close();
+                    sendToBrowser(fromCache);
+                    //                     byte data[] = new byte[4096];
+                    //                     int count;
+                    //                     while (-1 < ( count  = fromCache.read(data)))
+                    //                     {
+                    //                         toBrowser.write(data,0,count);
+                    //                     }
+                    //                     toBrowser.flush();
+                    //                     fromCache.close();
                 }else{
                     URL url;
                     String newurl[] = request.header.get(0).split(" ");
@@ -162,15 +162,15 @@ public class ProxyClientThread extends Thread{
                 pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
 
                 clientToServer = new ClientToServerThread(toHost, pedido);
-                //sendToBrowser(fromCache);
-                byte [] reponse = new byte[4096];
-                int read;
-                // envio das informações recebidas do servidor ao browser
-                while ((read = fromHost.read(reponse)) != -1)
-                {
-                    toBrowser.write(reponse, 0, read);
-                    toBrowser.flush();
-                }
+                sendToBrowser(fromHost);
+                //                 byte [] reponse = new byte[4096];
+                //                 int read;
+                //                 // envio das informações recebidas do servidor ao browser
+                //                 while ((read = fromHost.read(reponse)) != -1)
+                //                 {
+                //                     toBrowser.write(reponse, 0, read);
+                //                     toBrowser.flush();
+                //                 }
             }
 
         }else if(type.equals("PUT")){ // PUT request
@@ -188,13 +188,16 @@ public class ProxyClientThread extends Thread{
 
     }
 
-    private void sendToBrowser(DataInputStream fromCache)
+    /*
+     * Recebe dados e envia para o browser
+     */
+    private void sendToBrowser(DataInputStream from)
     {
         try
         {
             byte data[] = new byte[4096];
             int count;
-            while ((count = fromCache.read(data)) != -1)
+            while ((count = from.read(data)) != -1)
             {
                 toBrowser.write(data,0,count);
             }
