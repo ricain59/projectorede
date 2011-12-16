@@ -29,7 +29,6 @@ public class ProxyClientThread extends Thread{
     private DataInputStream fromCache;
     private DataOutputStream toCache;
     byte line[];
-    //String tempStr;
 
     /*
      * Recebe os dados da class proxythread para poder depois tratar os mesmos.
@@ -67,19 +66,11 @@ public class ProxyClientThread extends Thread{
             System.out.println("browser sent a GET operation");
             if(cache.IsCachable(requestedObject))
             {
-                //inCache = true;
+
                 if(cache.IsCached(requestedObject))
                 {
                     fromCache = new DataInputStream(cache.getFileInputStream(requestedObject));
                     sendToBrowser(fromCache);
-                    //                     byte data[] = new byte[4096];
-                    //                     int count;
-                    //                     while (-1 < ( count  = fromCache.read(data)))
-                    //                     {
-                    //                         toBrowser.write(data,0,count);
-                    //                     }
-                    //                     toBrowser.flush();
-                    //                     fromCache.close();
                 }else{
                     URL url;
                     String newurl[] = request.header.get(0).split(" ");
@@ -95,17 +86,18 @@ public class ProxyClientThread extends Thread{
 
                     clientToServer = new ClientToServerThread(toHost, pedido);
 
-                    String str = fromHost.readLine();
-                    StringTokenizer s = new StringTokenizer(str);
+                    String lineString = fromHost.readLine();
+                    StringTokenizer s = new StringTokenizer(lineString);
+                    //aqui retCode fica com a versão do http/1.0                                       
                     String retCode = s.nextToken();
+                    //aqui retCode fica com o codigo  
                     retCode = s.nextToken();
-
                     if (!retCode.equals("200") || !retCode.equals("302")
                     || !retCode.equals("304"))
                     {
                         toCache = new DataOutputStream(cache.getFileOutputStream(requestedObject));
 
-                        String tempStr = new String(str+"\r\n");
+                        String tempStr = new String(lineString+"\r\n");
                         toHost.writeBytes(tempStr);
 
                         line = new byte[tempStr.length()];
@@ -113,12 +105,12 @@ public class ProxyClientThread extends Thread{
 
                         toCache.write(line);
 
-                        if (str.length() > 0)
+                        if (lineString.length() > 0)
                         {
                             while (true)
                             {
-                                str = fromHost.readLine();
-                                tempStr = new String(str+"\r\n");
+                                lineString = fromHost.readLine();
+                                tempStr = new String(lineString+"\r\n");
 
                                 toHost.writeBytes(tempStr);
                                 line = new byte[tempStr.length()];
@@ -126,7 +118,7 @@ public class ProxyClientThread extends Thread{
 
                                 toCache.write(line);
 
-                                if (str.length() <= 0) 
+                                if (lineString.length() <= 0) 
                                     break;
                             }
                         }
@@ -163,26 +155,19 @@ public class ProxyClientThread extends Thread{
 
                 clientToServer = new ClientToServerThread(toHost, pedido);
                 sendToBrowser(fromHost);
-                //                 byte [] reponse = new byte[4096];
-                //                 int read;
-                //                 // envio das informações recebidas do servidor ao browser
-                //                 while ((read = fromHost.read(reponse)) != -1)
-                //                 {
-                //                     toBrowser.write(reponse, 0, read);
-                //                     toBrowser.flush();
-                //                 }
             }
-
-        }else if(type.equals("PUT")){ // PUT request
+        }else if(type.equals("PUT"))
+        { // PUT request
             System.out.println("browser sent a PUT operation");
 
-            pedido.add("PUT " + requestedObject + " " + "HTTP/1.0");
+            //pedido.add("PUT " + requestedObject + " " + "HTTP/1.0");
 
         }
-        else if(type.equals("POST")){ // POST request
+        else if(type.equals("POST"))
+        { // POST request
             System.out.println("browser sent a POST operation");
 
-            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            //pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
 
         }
 
@@ -204,7 +189,7 @@ public class ProxyClientThread extends Thread{
         }
         catch (IOException e) 
         {
-            System.out.println("Erro Thread Proxy : " + porta);
+            System.out.println("Erro 1 Thread Proxy : " + porta);
         }
         finally
         {
@@ -214,7 +199,7 @@ public class ProxyClientThread extends Thread{
                 fromCache.close();
             }
             catch (Exception e) {
-                System.out.println("Erro Thread Proxy : " + porta);
+                System.out.println("Erro 2 Thread Proxy : " + porta);
             }
         }
     }
@@ -230,7 +215,7 @@ public class ProxyClientThread extends Thread{
         }
         catch (Exception e) 
         {
-            System.out.println("Erro Thread Proxy : " + porta);
+            System.out.println("Erro 3 Thread Proxy : " + porta);
         }
         finally
         {
@@ -250,7 +235,7 @@ public class ProxyClientThread extends Thread{
                     socketServer.close();
             }
             catch (Exception e) {
-                System.out.println("Erro Thread Proxy : " + porta);
+                System.out.println("Erro 4 Thread Proxy : " + porta);
             }
         }
     }
