@@ -29,6 +29,7 @@ public class ProxyClientThread extends Thread{
     private DataInputStream fromCache;
     private DataOutputStream toCache;
     byte line[];
+    URL url;
 
     /*
      * Recebe os dados da class proxythread para poder depois tratar os mesmos.
@@ -72,20 +73,20 @@ public class ProxyClientThread extends Thread{
                     fromCache = new DataInputStream(cache.getFileInputStream(requestedObject));
                     sendToBrowser(fromCache);
                 }else{
-                    URL url;
-                    String newurl[] = request.header.get(0).split(" ");
-                    url = new URL("http://"+newurl[1]);
-                    int portaServer = url.getPort() > 0 ? url.getPort() : 80;
 
-                    socketServer = new Socket(url.getHost(),portaServer);
-
-                    pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
-
-                    fromHost = new DataInputStream(socketServer.getInputStream());
-                    toHost = new DataOutputStream(socketServer.getOutputStream());
-
-                    clientToServer = new ClientToServerThread(toHost, pedido);
-
+                    //                     String newurl[] = request.header.get(0).split(" ");
+                    //                     url = new URL("http://"+newurl[1]);
+                    //                     int portaServer = url.getPort() > 0 ? url.getPort() : 80;
+                    // 
+                    //                     socketServer = new Socket(url.getHost(),portaServer);
+                    // 
+                    //                     pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
+                    // 
+                    //                     fromHost = new DataInputStream(socketServer.getInputStream());
+                    //                     toHost = new DataOutputStream(socketServer.getOutputStream());
+                    // 
+                    //                     clientToServer = new ClientToServerThread(toHost, pedido);
+                    discoverHost(requestedObject);
                     String lineString = fromHost.readLine();
                     StringTokenizer s = new StringTokenizer(lineString);
                     //aqui retCode fica com a versão do http/1.0                                       
@@ -111,7 +112,7 @@ public class ProxyClientThread extends Thread{
                             {
                                 lineString = fromHost.readLine();
                                 tempStr = new String(lineString+"\r\n");
-                                
+
                                 toHost.writeBytes(tempStr);
                                 line = new byte[tempStr.length()];
                                 tempStr.getBytes(0,tempStr.length(),line,0);
@@ -139,21 +140,23 @@ public class ProxyClientThread extends Thread{
                     }
                 }
             }else{
-                String newurl[] = request.header.get(0).split(" ");
-
-                URL url;
-                url = new URL("http://"+newurl[1]);
-
-                int portaServer = url.getPort() > 0 ? url.getPort() : 80;
-
-                socketServer = new Socket(url.getHost(),portaServer);
-
-                fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
-                toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
-
-                pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
-
-                clientToServer = new ClientToServerThread(toHost, pedido);
+                //                 String newurl[] = request.header.get(0).split(" ");
+                // 
+                //                 url = new URL("http://"+newurl[1]);
+                // 
+                //                 int portaServer = url.getPort() > 0 ? url.getPort() : 80;
+                // 
+                //                 socketServer = new Socket(url.getHost(),portaServer);
+                // 
+                //                 //fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
+                //                 fromHost = new DataInputStream(socketServer.getInputStream());
+                //                 //toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
+                //                 toHost = new DataOutputStream(socketServer.getOutputStream());
+                // 
+                //                 pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
+                // 
+                //                 clientToServer = new ClientToServerThread(toHost, pedido);
+                discoverHost(requestedObject);
                 sendToBrowser(fromHost);
             }
         }else if(type.equals("PUT"))
@@ -171,6 +174,32 @@ public class ProxyClientThread extends Thread{
 
         }
 
+    }
+
+    /*
+     * Vai permitir saber qual a porta e com qual host vamos enviar e receber os dados
+     */
+    private void discoverHost(String requestedObject)
+    {
+        try
+        {
+            String newurl[] = request.header.get(0).split(" ");
+
+            url = new URL("http://"+newurl[1]);
+
+            int portaServer = url.getPort() > 0 ? url.getPort() : 80;
+
+            socketServer = new Socket(url.getHost(),portaServer);
+
+            fromHost = new DataInputStream(socketServer.getInputStream());
+            toHost = new DataOutputStream(socketServer.getOutputStream());
+
+            pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
+            new ClientToServerThread(toHost, pedido);
+        }catch (Exception e) 
+        {
+            //System.out.println("Erro : "+e);
+        }
     }
 
     /*
