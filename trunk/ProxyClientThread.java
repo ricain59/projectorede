@@ -90,7 +90,7 @@ public class ProxyClientThread extends Thread{
                     StringTokenizer s = new StringTokenizer(lineString);
                     //aqui retCode fica com a versão do http/1.0                                       
                     String retCode = s.nextToken();
-                    //aqui retCode fica com o codigo  
+                    //aqui retCode fica com o codigo (ex: 204 ou 200 ou ....)
                     retCode = s.nextToken();
                     if (!retCode.equals("200") || !retCode.equals("302")
                     || !retCode.equals("304"))
@@ -111,7 +111,7 @@ public class ProxyClientThread extends Thread{
                             {
                                 lineString = fromHost.readLine();
                                 tempStr = new String(lineString+"\r\n");
-
+                                
                                 toHost.writeBytes(tempStr);
                                 line = new byte[tempStr.length()];
                                 tempStr.getBytes(0,tempStr.length(),line,0);
@@ -160,14 +160,14 @@ public class ProxyClientThread extends Thread{
         { // PUT request
             System.out.println("browser sent a PUT operation");
 
-            //pedido.add("PUT " + requestedObject + " " + "HTTP/1.0");
+            pedido.add("PUT " + requestedObject + " " + "HTTP/1.0");
 
         }
         else if(type.equals("POST"))
         { // POST request
             System.out.println("browser sent a POST operation");
 
-            //pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
 
         }
 
