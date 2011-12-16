@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.util.StringTokenizer;
+import java.net.URLEncoder;
 
 public class ProxyClientThread extends Thread{
     private Socket socket;
@@ -65,6 +66,7 @@ public class ProxyClientThread extends Thread{
         if(type.equals("GET")) 
         { // reply to a GET request
             System.out.println("browser sent a GET operation");
+            System.out.println("requestedObject: "+requestedObject);
             if(cache.IsCachable(requestedObject))
             {
 
@@ -73,19 +75,6 @@ public class ProxyClientThread extends Thread{
                     fromCache = new DataInputStream(cache.getFileInputStream(requestedObject));
                     sendToBrowser(fromCache);
                 }else{
-
-                    //                     String newurl[] = request.header.get(0).split(" ");
-                    //                     url = new URL("http://"+newurl[1]);
-                    //                     int portaServer = url.getPort() > 0 ? url.getPort() : 80;
-                    // 
-                    //                     socketServer = new Socket(url.getHost(),portaServer);
-                    // 
-                    //                     pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
-                    // 
-                    //                     fromHost = new DataInputStream(socketServer.getInputStream());
-                    //                     toHost = new DataOutputStream(socketServer.getOutputStream());
-                    // 
-                    //                     clientToServer = new ClientToServerThread(toHost, pedido);
                     discoverHost(requestedObject);
                     String lineString = fromHost.readLine();
                     StringTokenizer s = new StringTokenizer(lineString);
@@ -140,22 +129,6 @@ public class ProxyClientThread extends Thread{
                     }
                 }
             }else{
-                //                 String newurl[] = request.header.get(0).split(" ");
-                // 
-                //                 url = new URL("http://"+newurl[1]);
-                // 
-                //                 int portaServer = url.getPort() > 0 ? url.getPort() : 80;
-                // 
-                //                 socketServer = new Socket(url.getHost(),portaServer);
-                // 
-                //                 //fromHost = new DataInputStream(new BufferedInputStream(socketServer.getInputStream()));
-                //                 fromHost = new DataInputStream(socketServer.getInputStream());
-                //                 //toHost = new DataOutputStream(new BufferedOutputStream(socketServer.getOutputStream()));
-                //                 toHost = new DataOutputStream(socketServer.getOutputStream());
-                // 
-                //                 pedido.add("GET " + requestedObject + " " + "HTTP/1.0");
-                // 
-                //                 clientToServer = new ClientToServerThread(toHost, pedido);
                 discoverHost(requestedObject);
                 sendToBrowser(fromHost);
             }
@@ -170,7 +143,24 @@ public class ProxyClientThread extends Thread{
         { // POST request
             System.out.println("browser sent a POST operation");
 
-            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            //             System.out.println("browser sent a POST operation :"+requestedObject);
+            //             discoverHost(requestedObject);
+            //             pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            //             //tenho k fazer o split depois do / e depois do? e todos os &
+            // 
+            //             String donnees = URLEncoder.encode("1", "UTF-8")+
+            //                 "="+URLEncoder.encode("2", "UTF-8");
+            //             donnees += "&"+URLEncoder.encode("3", "UTF-8")+
+            //             "=" + URLEncoder.encode("4", "UTF-8");
+            //             pedido.add(donnees);
+            //             new ClientToServerThread(toHost, pedido);
+            //                 //             PrintWriter out = new PrintWriter(new OutputStreamWriter(toHost));
+            //                 //             for (int i = 0; i < pedido.size(); ++i) {
+            //                 //                 out.write(pedido.get(i));
+            //                 //             }
+            //                 //             out.println();
+            //                 //             out.flush();
+            //             sendToBrowser(fromHost);
 
         }
 
@@ -183,9 +173,10 @@ public class ProxyClientThread extends Thread{
     {
         try
         {
-            String newurl[] = request.header.get(0).split(" ");
-
-            url = new URL("http://"+newurl[1]);
+            //String newurl[] = request.header.get(0).split(" ");
+            System.out.println("urlhost : "+request.urlHost);
+            //url = new URL("http://"+newurl[1]);
+            url = new URL("http://"+request.urlHost);
 
             int portaServer = url.getPort() > 0 ? url.getPort() : 80;
 
