@@ -8,6 +8,3 @@ e quando recebe um pedido de um browser transmite esse pedido a class proxy clie
 executar na consola:
 java –jar programa.jar
 
-
-din = fromhost
-dout = tohost
