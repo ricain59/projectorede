@@ -2,9 +2,6 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
 
 /*
  * Object type that encapsulates an HTTP request
@@ -80,7 +77,7 @@ public class HTTPRequest {
     static HTTPRequest parseHTTPRequestAs1_0(InputStream is) {
         java.util.Scanner sc = new java.util.Scanner(is);
         String operation = sc.next();
-        //System.out.println("operation :"+operation);
+        
         String requestedObject = sc.next();
         sc.next(); // skeep http version
         sc.next(); // limpa o \r\n do final da primeira linha
@@ -92,17 +89,7 @@ public class HTTPRequest {
             if(!(line.contains("connection")||line.contains("Connection")))
                 request.addHeader(line);
         }
-
-        BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-        String line2;
-        try{
-            while ((line2 = rd.readLine()) != null) {
-                System.out.println("Buffer :"+line);
-            }
-        }catch (IOException e)
-        {}
-
-        //System.out.println("test :"+sc.next());
+        
         return request;
     }
 

@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=obj\ file
-comment0.target=boolean\ serialize(java.lang.Object,\ java.lang.String)
-comment0.text=\r\n\ Serializa\ para\ um\ ficheiro\ um\ objecto\ que\ serializavel.\r\n\ @param\ obj\r\n\ @param\ file\ Caminho\ do\ ficheiro\ de\ destino.\r\n\ @return\ true\ se\ o\ serializer\ for\ executado\ com\ sucesso,\ caso\ contr\uFFFDrio\ false.\r\n
-comment1.params=file
-comment1.target=java.lang.Object\ deserialize(java.lang.String)
-comment1.text=\r\n\ Deserializa\ um\ objecto\ que\ anteriormente\ foi\ serializado\ para\ um\ ficheiro.\r\n\ @param\ obj\r\n\ @param\ file\ Caminho\ do\ ficheiro\ de\ destino.\r\n
-numComments=2
