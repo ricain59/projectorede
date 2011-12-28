@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=file\ text
-comment0.target=boolean\ writeAllText(java.lang.String,\ java.lang.String)
-comment0.text=\r\n\ Sustitui\ num\ ficheiro\ todo\ o\ conte\uFFFDdo\ existente\ pelo\ novo\ conte\uFFFDdo\ dado.\r\n\ @param\ file\ Caminho\ do\ ficheiro.\r\n\ @param\ text\ Novo\ conte\uFFFDdo\ para\ o\ ficheiro.\r\n\ @return\ true\ caso\ consiga\ escrever\ no\ ficheiro\ correctament,\ caso\ contr\uFFFDrio\ false.\r\n
-comment1.params=file
-comment1.target=java.lang.String\ readAllText(java.lang.String)
-comment1.text=\r\n\ L\uFFFD\ o\ conte\uFFFDdo\ do\ ficheiro\ e\ retorna\ um\ String\ com\ esse\ conte\uFFFDdo.\r\n\ @param\ file\ Caminho\ do\ ficheiro.\r\n
-numComments=2

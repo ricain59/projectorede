@@ -6,12 +6,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.net.URL;
-//import java.io.PrintWriter;
-//import java.io.OutputStreamWriter;
-//import java.io.BufferedInputStream;
-//import java.io.BufferedOutputStream;
 import java.util.StringTokenizer;
-//import java.net.URLEncoder;
 
 public class ProxyClientThread extends Thread{
     private Socket socket;
@@ -140,10 +135,10 @@ public class ProxyClientThread extends Thread{
         else if(type.equals("POST"))
         { // POST request
             System.out.println("browser sent a POST operation");
-            discoverHost(requestedObject);
-            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
-            new ClientToServerThread(toHost, pedido);
-            
+            //             discoverHost(requestedObject);
+            //             pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            //             new ClientToServerThread(toHost, pedido);
+
             sendToBrowser(fromHost);
         }
 
