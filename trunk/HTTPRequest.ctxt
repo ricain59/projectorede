@@ -19,4 +19,6 @@ comment5.text=\r\n\ String\ representation\ of\ this\ HTTPRequest\r\n
 comment6.params=is
 comment6.target=HTTPRequest\ parseHTTPRequestAs1_0(java.io.InputStream)
 comment6.text=\r\n\ Converte\ para\ a\ vers\u00E3o\ http\ 1.0\r\n\ E\ remove\ todas\ as\ linhas\ do\ header\ que\ comporta\ connection\ e\ keep-alive\r\n
-numComments=7
+comment7.params=is
+comment7.target=HTTPRequest\ readLine(java.io.InputStream)
+numComments=8

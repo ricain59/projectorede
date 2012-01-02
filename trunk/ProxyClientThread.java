@@ -20,6 +20,7 @@ public class ProxyClientThread extends Thread{
     private ArrayList pedido;
     private int porta;
     HTTPRequest request;
+    //HTTPRequest request2;
     ClientToServerThread clientToServer;
     Cache cache;
     private DataInputStream fromCache;
@@ -50,14 +51,16 @@ public class ProxyClientThread extends Thread{
      * Caso não existe vai buscar as informações ao host, mete as na cache e depois devolve as mesma para o browser, , nesse caso o cliente.
      */
     private void readRequete() throws Exception {
-        request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
+        //String test = request2.readLine(fromBrowser);
+        request = HTTPRequest.readLine(fromBrowser);
+        //request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
         System.out.println("Request (start)------------");
         System.out.println(request);
         System.out.println("Request (end)--------------\n");
 
         String requestedObject = request.requestedObject();
         String type = request.requestType();
-        // identify the requested method
+        // identifica o metodo
         if(type.equals("GET")) 
         { // reply to a GET request
             System.out.println("browser sent a GET operation");
@@ -135,9 +138,9 @@ public class ProxyClientThread extends Thread{
         else if(type.equals("POST"))
         { // POST request
             System.out.println("browser sent a POST operation");
-            //             discoverHost(requestedObject);
-            //             pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
-            //             new ClientToServerThread(toHost, pedido);
+            discoverHost(requestedObject);
+            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
+            new ClientToServerThread(toHost, pedido);
 
             sendToBrowser(fromHost);
         }
