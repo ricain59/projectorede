@@ -17,6 +17,8 @@ public class HTTPRequest {
     private String requestedObject; // Ex: /index.hmtl
     public String version; // protocol version
     public String urlHost;
+    public String post;
+    public String contentype;
 
     public LinkedList<String> header; // remainder of the request's header
 
@@ -43,6 +45,35 @@ public class HTTPRequest {
      */
     public String requestType() {
         return type;
+    }
+
+    /*
+     * Devolva o post
+     */
+    public String requestPost() {
+        return post;
+    }
+
+    /*
+     * Metes os valores do post nas string post
+     */
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    /*
+     * Metes os valores do content type nas string na string do mesmo nome
+     */
+    public void setContentTypePost(String contentype)
+    {
+        this.contentype = contentype;
+    }
+
+    /*
+     * Devolva o content type
+     */
+    public String requestContentType() {
+        return contentype;
     }
 
     /*
@@ -95,7 +126,7 @@ public class HTTPRequest {
 
     static HTTPRequest readLine(InputStream is) throws IOException {
         StringBuffer sb = new StringBuffer();
-        //HTTPRequest request = new HTTPRequest;
+
         String operation = "";
         String requestedObject = "";
         int c;
@@ -110,8 +141,6 @@ public class HTTPRequest {
                     requestedObject = new String(sb);
                     i++;
                     sb = new StringBuffer();
-                    //System.out.println("metodo:"+requestedObject+"TEST");      
-                    //request = new HTTPRequest(operation, requestedObject, "HTTP/1.0");
                     fim = true;
                 }
                 if(i == 0)
@@ -119,23 +148,19 @@ public class HTTPRequest {
                     operation = new String(sb);
                     i++;
                     sb = new StringBuffer();
-                    //System.out.println("metodo:"+operation+"test");
                 }
-
             }
             if(fim)
                 break;
-            if (c == '\r') {
-                continue;
-            }
-            if (c == '\n') {
-                //break;
-                //request.addHeader(line)
-            }
-            sb.append(new Character((char) c));
-            //Character a = new Character((char) c);            
+            //             if (c == '\r') {
+            //                 continue;
+            //             }
+            //             if (c == '\n') {
+            //                 //break;
+            //                 //request.addHeader(line)
+            //             }
+            sb.append(new Character((char) c));            
         }
-
         HTTPRequest request = new HTTPRequest(operation, requestedObject, "HTTP/1.0");
         fim = false;
         while ((c = is.read()) >= 0) {
@@ -143,38 +168,41 @@ public class HTTPRequest {
                 break;
             i =c;
 
-            //System.out.println(" "+c);
             if (c == '\n') {
-                //break;
-                //request.addHeader(line)
                 sb.append(new Character((char) c));
-                //System.out.println(""+new String (sb));
-                String test = new String (sb);
-                //System.out.println(test);
-                if(!test.contains("HTTP"))
+
+                String headerpedido = new String (sb);
+
+                if(!(headerpedido.contains("HTTP") || headerpedido.contains("connection") || headerpedido.contains("Connection")))
+                //if(!headerpedido.contains("HTTP"))
                 {
-                    System.out.println("nao tem http");
-                    if(test.contains("Content-Length"))
+                    if(headerpedido.contains("Content-Type"))
                     {
-                        int doispontos = test.indexOf(":");
-                        //String longueur = test.substring(doispontos+1);
-                        String longueur = test.substring(doispontos+2);
-                        String longueur2 = longueur.substring(0,2);
-                        int fl = Integer.parseInt(longueur2);
+                        request.setContentTypePost(headerpedido);
+                    }
+                    if(headerpedido.contains("Content-Length"))
+                    {
+                        //para saber o valor do content-length                        
+                        int doispontos = headerpedido.indexOf(":");
+                        String tamanho = headerpedido.substring(doispontos+2);
+                        int r = tamanho.indexOf("\r");
+                        tamanho = tamanho.substring(0,r);
+                        int fl = Integer.parseInt(tamanho);
+                        request.addHeader(headerpedido);
 
-                        for(int r=0;r<fl;i++)
+                        sb = new StringBuffer();
+                        is.read();
+                        is.read();
+                        for(int s=0;r<fl;s++)
                         {
-                            //while ((c = is.read()) >= 0) {
-                            sb.append(new Character((char) c));
-                            //System.out.println("no outro while "+(new String (sb)));                            
+                            c = is.read();
+                            sb.append(new Character((char) c));              
                         }
-
-                        
-                        request.addHeader(new String (sb));
+                        request.setPost(new String (sb));
                         fim = true;
                     }else{
                         request.addHeader(new String (sb));
-                        //System.out.println("test : "+(new String (sb)));
+                        
                         sb = new StringBuffer();
                     }
                 }else{
@@ -185,12 +213,10 @@ public class HTTPRequest {
             }
             if(fim)
                 break;
-            //Character a = new Character((char) c);
-            //System.out.println("test : "+a);
-
+            
         }
-        System.out.println("fim");
-        //return sb.toString();
+        //System.out.println("fim");
+        
         return request;
     }
 
