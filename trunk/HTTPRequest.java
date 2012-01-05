@@ -19,6 +19,7 @@ public class HTTPRequest {
     public String urlHost;
     public String post;
     public String contentype;
+    public String contentlength;
 
     public LinkedList<String> header; // remainder of the request's header
 
@@ -74,6 +75,21 @@ public class HTTPRequest {
      */
     public String requestContentType() {
         return contentype;
+    }
+
+    /*
+     * Metes os valores do content type nas string na string do mesmo nome
+     */
+    public void setContentLengthPost(String contentlength)
+    {
+        this.contentlength = contentlength;
+    }
+
+    /*
+     * Devolva o content type
+     */
+    public String requestContentLength() {
+        return contentlength;
     }
 
     /*
@@ -152,13 +168,6 @@ public class HTTPRequest {
             }
             if(fim)
                 break;
-            //             if (c == '\r') {
-            //                 continue;
-            //             }
-            //             if (c == '\n') {
-            //                 //break;
-            //                 //request.addHeader(line)
-            //             }
             sb.append(new Character((char) c));            
         }
         HTTPRequest request = new HTTPRequest(operation, requestedObject, "HTTP/1.0");
@@ -174,35 +183,39 @@ public class HTTPRequest {
                 String headerpedido = new String (sb);
 
                 if(!(headerpedido.contains("HTTP") || headerpedido.contains("connection") || headerpedido.contains("Connection")))
-                //if(!headerpedido.contains("HTTP"))
                 {
                     if(headerpedido.contains("Content-Type"))
                     {
-                        request.setContentTypePost(headerpedido);
+                        int r = headerpedido.indexOf("\r");
+                        String ct = headerpedido.substring(0,r);
+                        request.setContentTypePost(ct);
                     }
                     if(headerpedido.contains("Content-Length"))
                     {
-                        //para saber o valor do content-length                        
+                        //para saber o valor do content-length  
+                        request.addHeader(headerpedido);
                         int doispontos = headerpedido.indexOf(":");
                         String tamanho = headerpedido.substring(doispontos+2);
                         int r = tamanho.indexOf("\r");
                         tamanho = tamanho.substring(0,r);
-                        int fl = Integer.parseInt(tamanho);
-                        request.addHeader(headerpedido);
-
+                        int pl = Integer.parseInt(tamanho);
+                        r = headerpedido.indexOf("\r");
+                        String cl = headerpedido.substring(0,r);
+                        request.setContentLengthPost(cl);
                         sb = new StringBuffer();
-                        is.read();
-                        is.read();
-                        for(int s=0;r<fl;s++)
+                        
+                        for(int s=0;s<pl;s++)
                         {
                             c = is.read();
                             sb.append(new Character((char) c));              
                         }
                         request.setPost(new String (sb));
+                       
+                        request.addHeader(new String (sb));
                         fim = true;
                     }else{
                         request.addHeader(new String (sb));
-                        
+
                         sb = new StringBuffer();
                     }
                 }else{
@@ -213,10 +226,8 @@ public class HTTPRequest {
             }
             if(fim)
                 break;
-            
+
         }
-        //System.out.println("fim");
-        
         return request;
     }
 

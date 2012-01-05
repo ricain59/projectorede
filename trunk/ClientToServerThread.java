@@ -13,7 +13,7 @@ class ClientToServerThread extends Thread
         this.toHost = toHost;
         this.pedido = pedido;
         start();
-    }
+    }    
 
     /*
      * Transmita os dados recebidos da class proxyclient thread para o host do qual queremos a paginas 
