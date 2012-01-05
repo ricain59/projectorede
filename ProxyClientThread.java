@@ -51,21 +51,18 @@ public class ProxyClientThread extends Thread{
      * Caso não existe vai buscar as informações ao host, mete as na cache e depois devolve as mesma para o browser, , nesse caso o cliente.
      */
     private void readRequete() throws Exception {
-        
         request = HTTPRequest.readLine(fromBrowser);
         //request = HTTPRequest.parseHTTPRequestAs1_0(fromBrowser);
-        System.out.println("Request (start)------------");
-        System.out.println(request);
-        System.out.println("Request (end)--------------\n");
 
         String requestedObject = request.requestedObject();
         String post = request.requestPost();
         String contentype = request.requestContentType();
+        String contentlength = request.requestContentLength();
         String type = request.requestType();
         // identifica o metodo
         if(type.equals("GET")) 
         { // reply to a GET request
-            System.out.println("browser sent a GET operation");
+            //System.out.println("browser sent a GET operation");
             if(cache.IsCachable(requestedObject))
             {
                 if(cache.IsCached(requestedObject))
@@ -139,20 +136,22 @@ public class ProxyClientThread extends Thread{
         }
         else if(type.equals("POST"))
         { // POST request
-            System.out.println("browser sent a POST operation");
+            //System.out.println("browser sent a POST operation");
             discoverHost(requestedObject);
-            pedido.add("POST " + requestedObject + " " + "HTTP/1.0");
-            //             pedido.add("\r\n");
-            //             pedido.add("\r\n");
+            pedido = new ArrayList();
+            pedido.add("POST" + requestedObject + " " + "HTTP/1.0");
             pedido.add(contentype);
-            pedido.add("\r\n");
+            pedido.add(contentlength);
             pedido.add(post);
-            
-            new ClientToServerThread(toHost, pedido);
 
+            //             for(int i=0;i<pedido.size();i++)
+            //             {
+            //                 System.out.println(pedido.get(i));
+            //             }
+
+            new ClientToServerThread(toHost, pedido);
             sendToBrowser(fromHost);
         }
-
     }
 
     /*
